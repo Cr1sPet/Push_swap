@@ -1,7 +1,8 @@
 NAME        =   my_push_swap
 LIB_NAME    =   push_swap.a
 SRCS    =   push_swap.c is_valid.c\
-HEADER  =   push_swap.h
+HEADER  =   push_swap.h validation_utils.c\
+			validation.c
 %.o : &.c $(HEADER)
 	@$(CC)  $(CFLAGS) -c $< -O $@
 OBJ =   $(SRCS:%.c=%.o)
