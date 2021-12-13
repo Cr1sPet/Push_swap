@@ -32,7 +32,10 @@ int	check_argv(char *str)
 
 	i = 0;
 	while (str[i])
-		if (!ft_isdigit(str[i++]))
+	{
+		if ((!ft_isdigit(str[i])) && '-' != str[i])
 				return (0);
+		i++;
+	}
 	return (check_atoi(str));
 }

@@ -62,7 +62,7 @@ void print_arr(int *arr, int arr_length)
 	printf("\n");
 }
 
-void print_list(t_list **listA)
+static void print_list(t_list **listA)
 {
 	t_list *list;
 
@@ -70,6 +70,26 @@ void print_list(t_list **listA)
 	while (list)
 	{
 		printf("----\nindex = %d\ncontent = %d\n", list->index, list->content);
+		list = list->next;
+	}
+}
+
+static void markup_by_index (t_list **listA)
+{
+	int	i;
+	t_list *list;
+
+	i = 0;
+	list = *listA;
+	while (list)
+	{
+		if (i == list->index)
+		{
+			list->keep_a = 1;
+			i++;
+		}
+		else
+			list->keep_a = 0;
 		list = list->next;
 	}
 }
@@ -83,6 +103,6 @@ int initialisation(int *arr, t_list **listA, int arr_length)
 		ft_lstadd_back(listA, ft_lstnew(arr[i++]));
 	sort_arr(arr, arr_length);
 	list_indexing (listA, arr, arr_length);
-	print_list(listA);
+	markup_by_index (listA);
 	return (0);
 }
