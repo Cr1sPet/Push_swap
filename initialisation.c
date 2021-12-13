@@ -74,7 +74,7 @@ static void print_list(t_list **listA)
 	}
 }
 
-static void markup_by_index (t_list **listA)
+void markup_by_index (t_list **listA)
 {
 	int	i;
 	t_list *list;

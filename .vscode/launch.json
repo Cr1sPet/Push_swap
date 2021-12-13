@@ -10,7 +10,7 @@
 			"type": "lldb",
 			"request": "launch",
 			"program": "${workspaceFolder}/${workspaceFolderBasename}",
-			"args": ["4", "6", "2"],
+			"args": ["4", "6", "2", "8", "3"],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
 			"environment": [ { "name": "squid", "value": "clam" } ],

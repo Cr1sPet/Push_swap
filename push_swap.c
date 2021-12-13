@@ -27,7 +27,7 @@ int main (int argc, char *argv[])
 		return (0);
 	ft_putendl_fd("OK", 1);
 	initialisation(arr, &listA, arr_length - 1);
-	print_list(&listA);
+	list_sort(&listA);
 	free (arr);
 	return (0);
 }
