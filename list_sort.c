@@ -116,37 +116,38 @@ void reverse_rotate_stack (t_list **list)
 		la_list = la_list->next;
 		i++;
 	}
-	la_list->next = (*list)->next;
+	la_list->next = (*list);
 	pre_last->next = NULL;
 	(*list) = la_list;
 }
 
-void list_sort(t_list **list)
+void list_sort(t_list **list, t_list **stack_b)
 {
 	// t_list  *stack_b;
-	// int		false_count;
+	int		false_count;
 
-	// stack_b = NULL;
+	*stack_b = NULL;
 	print_list (list);
-	// false_count = false_counter(list);
-	// while (false_count)
-	// {
-	// 	if (check_swap_need(list, false_count))
-	// 	{
-	// 		swap_stack (list);
-	// 		markup_by_index(list);
-	// 	}
-	// 	else if (0 == (*list)->keep_a)
-	// 	{
-	// 		push_stack (list, &stack_b);
-	// 	}
-	// 	else
-	// 	{
-	// 		rotate_stack (list);
-	// 	}
-	// 	false_count = false_counter(list);
-	// }
+	false_count = false_counter(list);
+	while (false_count)
+	{
+		if (check_swap_need(list, false_count))
+		{
+			swap_stack (list);
+			markup_by_index(list);
+		}
+		else if (0 == (*list)->keep_a)
+		{
+			push_stack (list, stack_b);
+		}
+		else
+		{
+			rotate_stack (list);
+		}
+		false_count = false_counter(list);
+	}
+	print_list (list);
 	reverse_rotate_stack(list);
 	print_list (list);
-	// print_list (&stack_b);
+	print_list (stack_b);
 }
