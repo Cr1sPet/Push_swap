@@ -19,14 +19,17 @@ int  false_counter(t_list **list)
 static void print_list(t_list **listA)
 {
 	t_list *list;
+	static int i = 0;
 
 	list = *listA;
+	printf("#################################\n------>%d<------\n", i);
 	while (list)
 	{
-		printf("----\nindex = %d\ncontent = %d\n", list->index, list->content);
+		printf("----\nindex = %d\nkeep_a = %d\ncontent = %d\n", list->index, list->keep_a, list->content);
 		list = list->next;
 	}
 	printf("\n");
+	i++;
 }
 
 void swap_stack (t_list **list)
@@ -41,18 +44,33 @@ void swap_stack (t_list **list)
 	(*list) = stack_a;
 }
 
+void	copy_list(t_list **dest, t_list **src)
+{
+	t_list	*hello;
+
+	hello = *src;
+	while (hello)
+	{
+		ft_lstadd_back(dest, ft_lstnew(hello->content, hello->index, hello->keep_a));
+		hello = hello->next;
+	}
+}
+
 int check_swap_need(t_list **list, int false_count_before)
 {
-	int	ok;
+	int		ok;
+	t_list	*temp_list;
 
-	swap_stack (list);
-	markup_by_index(list);
-	if (false_count_before > false_counter(list))
+	temp_list = NULL;
+	copy_list (&temp_list, list);
+	swap_stack (&temp_list);
+	markup_by_index(&temp_list);
+	if (false_count_before > false_counter(&temp_list))
 		ok = 1;
 	else
 		ok = 0;
-	swap_stack (list);
-	markup_by_index(list);
+	swap_stack (&temp_list);
+	markup_by_index(&temp_list);
 	return (ok);
 }
 
@@ -76,33 +94,33 @@ void rotate_stack (t_list **list)
 	ft_lstadd_back(list, temp_list);
 }
 
+
+
 void list_sort(t_list **list)
 {
 	t_list  *stack_b;
+	int		false_count;
 
 	stack_b = NULL;
-	// t_list  *stack_a;
-	// int		false_count;
-
-	// false_count = false_counter(list);
-	// while (false_counter)
-	// {
-	// 	if (check_swap_need(list))
-	// 	{
-			// swap_stack (list);
-	// 		markup_by_index(list);
-	// 	}
-	// 	else if (0 == (*list)->keep_a)
-	// 		push_b (list);
-	// 	else
-	// 		rotate_a (list);
-	// 	false_counter = false_counter(stack_a);
-	// }
 	print_list (list);
-	// check_swap_need(list, false_count);
-	// swap_stack (list);
-	// push_stack (list, &stack_b);
-	rotate_stack (list);
+	false_count = false_counter(list);
+	while (false_count)
+	{
+		if (check_swap_need(list, false_count))
+		{
+			swap_stack (list);
+			markup_by_index(list);
+		}
+		else if (0 == (*list)->keep_a)
+		{
+			push_stack (list, &stack_b);
+		}
+		else
+		{
+			rotate_stack (list);
+		}
+		false_count = false_counter(list);
+	}
 	print_list (list);
-	// print_list(&stack_b);
+	print_list (&stack_b);
 }
