@@ -16,7 +16,7 @@ int  false_counter(t_list **list)
 	return (counter);
 }
 
-static void print_list(t_list **listA)
+void print_list(t_list **listA)
 {
 	t_list *list;
 	static int i = 0;
@@ -147,7 +147,7 @@ void list_sort(t_list **list, t_list **stack_b)
 		false_count = false_counter(list);
 	}
 	print_list (list);
-	reverse_rotate_stack(list);
-	print_list (list);
+	// reverse_rotate_stack(list);
+	// print_list (list);
 	print_list (stack_b);
 }

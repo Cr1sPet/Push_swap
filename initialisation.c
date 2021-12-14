@@ -62,18 +62,6 @@ void print_arr(int *arr, int arr_length)
 	printf("\n");
 }
 
-static void print_list(t_list **listA)
-{
-	t_list *list;
-
-	list = *listA;
-	while (list)
-	{
-		printf("----\nindex = %d\ncontent = %d\n", list->index, list->content);
-		list = list->next;
-	}
-}
-
 void markup_by_index (t_list **listA)
 {
 	int	i;
