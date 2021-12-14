@@ -28,6 +28,7 @@ int main (int argc, char *argv[])
 	ft_putendl_fd("OK", 1);
 	initialisation(arr, &listA, arr_length - 1);
 	list_sort(&listA);
+	stack_a_to_stack_b;
 	free (arr);
 	return (0);
 }
