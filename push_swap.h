@@ -3,13 +3,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "libft/libft.h"
-// typedef struct s_list 
-// {
-// 	int		index;
-// 	void	*next;
-// 	int		content;
-
-// } t_list;
+typedef struct s_info_a_to_b
+{
+    int index_a;
+    int place_a;
+    int index_b;
+    int place_b;
+    int number_top_iterations_a;
+    int number_top_iterations_b;
+} t_info_a_to_b;
 int		validation (int argc, char **argv, int **arr, int *arr_length);
 int		check_argv(char *str);
 int		check_atoi(char *str);
@@ -22,6 +24,6 @@ void reverse_rotate_stack (t_list **list);
 void rotate_stack (t_list **list);
 void push_stack (t_list **stack_a, t_list **stack_b);
 void swap_stack (t_list **list);
-void move_b_to_a(t_list **stack_a, t_list **stack_b);
+int move_b_to_a(t_list **stack_a, t_list **stack_b);
 void print_list(t_list **list);
 #endif
