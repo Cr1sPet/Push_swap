@@ -17,7 +17,7 @@ int main (int argc, char *argv[])
 	ft_putendl_fd("OK", 1);
 	initialisation(arr, &listA, arr_length - 1);
 	list_sort(&listA, &listB);
-	move_b_to_a(&listA, &listB);
+	preparing_b_to_a(&listA, &listB);
 	free (arr);
 	return (0);
 }

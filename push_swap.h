@@ -11,6 +11,12 @@ typedef struct s_info_a_to_b
     int place_b;
     int number_top_iterations_a;
     int number_top_iterations_b;
+    int iterations_sign_a;
+    int iterations_sign_b;
+    int min_summary_iterations;
+    int min_iterations;
+    char has_more_iterations;
+    int reverse_same_time;
 } t_info_a_to_b;
 int		validation (int argc, char **argv, int **arr, int *arr_length);
 int		check_argv(char *str);
@@ -22,8 +28,12 @@ void	list_sort(t_list **list, t_list **stack_b);
 void	markup_by_index (t_list **listA);
 void reverse_rotate_stack (t_list **list);
 void rotate_stack (t_list **list);
-void push_stack (t_list **stack_a, t_list **stack_b);
+void push_stack (t_list **src, t_list **dest);
 void swap_stack (t_list **list);
-int move_b_to_a(t_list **stack_a, t_list **stack_b);
+int preparing_b_to_a(t_list **stack_a, t_list **stack_b);
 void print_list(t_list **list);
+int is_positive (int num);
+int get_min_num (int a, int b);
+int get_max_num (int a, int b);
+void    elem_b_to_a (t_list **stack_a, t_list **stack_b, t_info_a_to_b elem_info_a_to_b);
 #endif
