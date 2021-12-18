@@ -15,11 +15,7 @@ void    elem_b_to_a (t_list **stack_a, t_list **stack_b, t_info_a_to_b elem_info
 	int has_more_iterations;
 
 	i = 0;
-	if (0 == elem_info_a_to_b.min_summary_iterations)
-	{
-		push_stack (stack_b, stack_a);
-	}
-	else if (elem_info_a_to_b.reverse_same_time)
+	if (elem_info_a_to_b.reverse_same_time)
 	{
 		while (i < elem_info_a_to_b.min_iterations)
 		{
@@ -56,5 +52,7 @@ void    elem_b_to_a (t_list **stack_a, t_list **stack_b, t_info_a_to_b elem_info
 			i++;
 		}
 	}
+	if (elem_info_a_to_b.has_bigger_index == 'B')
+		rotate_stack (stack_a);
 	push_stack (stack_b, stack_a);
 }

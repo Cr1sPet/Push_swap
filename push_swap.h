@@ -5,18 +5,19 @@
 #include "libft/libft.h"
 typedef struct s_info_a_to_b
 {
-    int index_a;
-    int place_a;
-    int index_b;
-    int place_b;
-    int number_top_iterations_a;
-    int number_top_iterations_b;
-    int iterations_sign_a;
-    int iterations_sign_b;
-    int min_summary_iterations;
-    int min_iterations;
-    char has_more_iterations;
-    int reverse_same_time;
+	int index_a;
+	int place_a;
+	int index_b;
+	int place_b;
+	int number_top_iterations_a;
+	int number_top_iterations_b;
+	int iterations_sign_a;
+	int iterations_sign_b;
+	int min_summary_iterations;
+	int min_iterations;
+	char has_more_iterations;
+	int reverse_same_time;
+	char	has_bigger_index;
 } t_info_a_to_b;
 int		validation (int argc, char **argv, int **arr, int *arr_length);
 int		check_argv(char *str);
@@ -36,4 +37,5 @@ int is_positive (int num);
 int get_min_num (int a, int b);
 int get_max_num (int a, int b);
 void    elem_b_to_a (t_list **stack_a, t_list **stack_b, t_info_a_to_b elem_info_a_to_b);
+int get_num_abs (int a);
 #endif
