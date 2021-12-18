@@ -20,13 +20,14 @@ void print_list(t_list **listA)
 {
 	t_list *list;
 	static int i = 0;
+	int j = 0;
 
 	list = *listA;
 	printf("#################################\n------>%d<------\n", i);
 	while (list)
 	{
 		// printf("----\nindex = %d\nkeep_a = %d\ncontent = %d\n", list->index, list->keep_a, list->content);
-		printf("\nindex = %2d", list->index);
+		printf("\nindex = %2d	number = %d", list->index, j++);
 		list = list->next;
 	}
 	printf("\n");
@@ -70,8 +71,6 @@ int check_swap_need(t_list **list, int false_count_before)
 		ok = 1;
 	else
 		ok = 0;
-	swap_stack (&temp_list);
-	markup_by_index(&temp_list);
 	return (ok);
 }
 
@@ -83,6 +82,7 @@ void push_stack (t_list **stack_a, t_list **stack_b)
 	(*stack_a)->next = NULL;
 	ft_lstadd_front(stack_b, *stack_a);
 	(*stack_a) = temp_list;
+	ft_putendl_fd("push", 1);
 }
 
 void rotate_stack (t_list **list)
@@ -93,6 +93,7 @@ void rotate_stack (t_list **list)
 	(*list) = temp_list->next;
 	temp_list->next = NULL;
 	ft_lstadd_back(list, temp_list);
+	ft_putendl_fd("rotate", 1);
 }
 
 void reverse_rotate_stack (t_list **list)
@@ -120,6 +121,7 @@ void reverse_rotate_stack (t_list **list)
 	la_list->next = (*list);
 	pre_last->next = NULL;
 	(*list) = la_list;
+	ft_putendl_fd("reverse rotate", 1);
 }
 
 void list_sort(t_list **list, t_list **stack_b)
@@ -135,20 +137,22 @@ void list_sort(t_list **list, t_list **stack_b)
 		if (check_swap_need(list, false_count))
 		{
 			swap_stack (list);
+			ft_putendl_fd("sa", 1);
 			markup_by_index(list);
 		}
 		else if (0 == (*list)->keep_a)
 		{
 			push_stack (list, stack_b);
+			// ft_putendl_fd("pb", 1);
 		}
 		else
 		{
 			rotate_stack (list);
+			// ft_putendl_fd("ra", 1);
 		}
 		false_count = false_counter(list);
 	}
 	// print_list (list);
-	// reverse_rotate_stack(list);
 	// print_list (list);
 	// print_list (stack_b);
 }

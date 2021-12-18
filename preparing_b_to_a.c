@@ -165,6 +165,8 @@ int preparing_b_to_a(t_list **stack_a, t_list **stack_b)
 
 	while (*stack_b)
 	{
+		// print_list (stack_a);
+		// print_list (stack_b);
 		stack_a_size = ft_lstsize (*stack_a);
 		stack_b_size = ft_lstsize (*stack_b);
 		elems_info_a_to_b = get_info_array (stack_a, stack_b, stack_a_size, stack_b_size);
