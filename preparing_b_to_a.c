@@ -180,4 +180,5 @@ int preparing_b_to_a(t_list **stack_a, t_list **stack_b)
 		// print_list (stack_a);
 		// print_list (stack_b);
 	}
+	return (0);
 }

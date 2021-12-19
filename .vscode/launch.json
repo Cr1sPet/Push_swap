@@ -10,7 +10,7 @@
 			"type": "lldb",
 			"request": "launch",
 			"program": "${workspaceFolder}/${workspaceFolderBasename}",
-			"args": ["-2147483648", "2100", "220010", "-1", "7", "210815", "121"],
+			"args": ["395 342 175 150 163 16 41 246 472 319 12 212 331 15 412 338 443 70 301 184 293 358 49 231"],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
 			"environment": [ { "name": "squid", "value": "clam" } ],

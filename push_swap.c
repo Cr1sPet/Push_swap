@@ -21,7 +21,5 @@ int main (int argc, char *argv[])
 	// print_list (&listA);
 	// print_list (&listB);
 	free (arr);
-	while (1)
-		;
 	return (0);
 }

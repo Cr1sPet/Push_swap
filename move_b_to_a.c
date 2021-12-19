@@ -61,7 +61,7 @@ void    elem_b_to_a (t_list **stack_a, t_list **stack_b, t_info_a_to_b elem_info
 			// 	ft_putendl_fd ("rra", 1);
 			i++;
 		}
-		// i = 0;
+		i = 0;
 		while (i < elem_info_a_to_b.number_top_iterations_b)
 		{
 			go_rotate_stack (stack_b, elem_info_a_to_b.iterations_sign_b);

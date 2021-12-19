@@ -130,7 +130,7 @@ void list_sort(t_list **list, t_list **stack_b)
 	int		false_count;
 
 	*stack_b = NULL;
-	// print_list (list);
+	print_list (list);
 	false_count = false_counter(list);
 	while (false_count)
 	{
@@ -152,7 +152,7 @@ void list_sort(t_list **list, t_list **stack_b)
 		}
 		false_count = false_counter(list);
 	}
+	print_list (list);
 	// print_list (list);
-	// print_list (list);
-	// print_list (stack_b);
+	print_list (stack_b);
 }

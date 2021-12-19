@@ -57,7 +57,7 @@ static int is_valid(int argc, char *argv[], int **input_arr, int fa)
 	arr = (int *)malloc(sizeof(int) * (argc - 1));
 	if (NULL == arr)
 		return (0);	
-	while (i < argc)
+	while (i < argc - fa)
 	{
 		if (!check_argv(argv[-fa + i]))
 		{
