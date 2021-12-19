@@ -18,8 +18,8 @@ int main (int argc, char *argv[])
 	initialisation(arr, &listA, arr_length - 1);
 	list_sort(&listA, &listB);
 	preparing_b_to_a(&listA, &listB);
-	// print_list (&listA);
-	// print_list (&listB);
+	print_list (&listA);
+	print_list (&listB);
 	free (arr);
 	return (0);
 }
