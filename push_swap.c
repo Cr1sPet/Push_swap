@@ -19,7 +19,7 @@ int main (int argc, char *argv[])
 	list_sort(&listA, &listB);
 	preparing_b_to_a(&listA, &listB);
 	print_list (&listA);
-	print_list (&listB);
+	// print_list (&listB);
 	free (arr);
 	return (0);
 }
