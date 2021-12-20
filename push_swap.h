@@ -9,6 +9,7 @@ typedef struct s_markup_info
 	int	temp_head;
 	int	seq_size;
 	int	place;	
+	int	border;
 } t_markup_info;
 typedef struct s_info_a_to_b
 {
