@@ -39,6 +39,7 @@ int main (int argc, char *argv[])
 	t_list	*listB;
 
 	listA = NULL;
+	listB = NULL;
 	ok = validation(argc, argv, &arr, &arr_length);
 	if (-1 == ok)
 		return (0);

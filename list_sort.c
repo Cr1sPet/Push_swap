@@ -34,17 +34,7 @@ void print_list(t_list **listA)
 	i++;
 }
 
-void swap_stack (t_list **list)
-{
-	t_list  *stack_a;
-	t_list  *temp_list;
 
-	stack_a = (*list)->next;
-	temp_list = stack_a->next;
-	stack_a->next = (*list);
-	(*list)->next = temp_list;
-	(*list) = stack_a;
-}
 
 void	copy_list(t_list **dest, t_list **src)
 {
@@ -66,7 +56,6 @@ int check_swap_need(t_list **list, int false_count_before)
 	temp_list = NULL;
 	copy_list (&temp_list, list);
 	swap_stack (&temp_list);
-	// markup_by_index(&temp_list);
 	my_markup_greater_then(&temp_list);
 	if (false_count_before > false_counter(&temp_list))
 		ok = 1;
@@ -75,73 +64,17 @@ int check_swap_need(t_list **list, int false_count_before)
 	return (ok);
 }
 
-
-void push_stack (t_list **stack_a, t_list **stack_b)
-{
-	t_list	*temp_list;
-
-	temp_list = (*stack_a)->next;
-	(*stack_a)->next = NULL;
-	ft_lstadd_front(stack_b, *stack_a);
-	(*stack_a) = temp_list;
-	// ft_putendl_fd("push", 1);
-}
-
-void rotate_stack (t_list **list)
-{
-	t_list	*temp_list;
-
-	temp_list = (*list);
-	(*list) = temp_list->next;
-	temp_list->next = NULL;
-	ft_lstadd_back(list, temp_list);
-	// ft_putendl_fd("rotate", 1);
-}
-
-void reverse_rotate_stack (t_list **list)
-{
-	int		i;
-	int		lst_size;
-	t_list	*la_list;
-	t_list	*pre_last;
-
-	i = 0;
-	la_list = *list;
-	lst_size = ft_lstsize(*list);
-	while (i < lst_size)
-	{
-
-		if (i == lst_size - 2)
-		{
-			pre_last = la_list;
-			la_list = pre_last->next;
-			break;
-		}
-		la_list = la_list->next;
-		i++;
-	}
-	la_list->next = (*list);
-	pre_last->next = NULL;
-	(*list) = la_list;
-	// ft_putendl_fd("reverse rotate", 1);
-}
-
 void list_sort(t_list **list, t_list **stack_b)
 {
-	// t_list  *stack_b;
 	int		false_count;
 
-	*stack_b = NULL;
-	// print_list (list);
 	false_count = false_counter(list);
 	while (false_count)
 	{
-		// print_list(list);
 		if (check_swap_need(list, false_count))
 		{
 			swap_stack (list);
 			ft_putendl_fd("sa", 1);
-			// markup_by_index(list);
 			my_markup_greater_then(list);
 		}
 		else if (0 == (*list)->keep_a)
@@ -156,7 +89,4 @@ void list_sort(t_list **list, t_list **stack_b)
 		}
 		false_count = false_counter(list);
 	}
-	// print_list (list);
-	// print_list (list);
-	// print_list (stack_b);
 }
