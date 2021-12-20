@@ -43,10 +43,10 @@ void	find_stack_a_elem (t_list **stack_a, t_info_a_to_b *elem_info_a_to_b, int s
 	temp_stack_a = *stack_a;
 	while (temp_stack_a && min != 1)
 	{
-		temp = (elem_info_a_to_b[0]).index_b - (temp_stack_a)->index;
-		if (get_num_abs(temp) < min)
+		temp = (temp_stack_a)->index - (elem_info_a_to_b[0]).index_b;
+		if (temp > 0 && temp < min)
 		{
-			min = get_num_abs(temp);
+			min = temp;
 			if (temp < 0)
 				(elem_info_a_to_b[0]).has_bigger_index = 'A';
 			else

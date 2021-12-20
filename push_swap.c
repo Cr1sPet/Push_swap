@@ -48,6 +48,7 @@ int main (int argc, char *argv[])
 	initialisation(arr, &listA, arr_length - 1);
 	// print_list (&listA);
 	list_sort(&listA, &listB);
+	// print_list (&listA);
 	preparing_b_to_a(&listA, &listB);
 	// print_list (&listB);
 	normalize (listA, &listA, ft_lstsize(listA));
