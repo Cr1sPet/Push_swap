@@ -44,7 +44,9 @@ int main (int argc, char *argv[])
 		return (0);
 	if (!ok)
 		return (0);
+	// print_list (&listA);
 	initialisation(arr, &listA, arr_length - 1);
+	// print_list (&listA);
 	list_sort(&listA, &listB);
 	preparing_b_to_a(&listA, &listB);
 	// print_list (&listB);

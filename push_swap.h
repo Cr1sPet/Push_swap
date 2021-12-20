@@ -3,6 +3,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "libft/libft.h"
+typedef struct s_markup_info
+{
+	t_list *markup_head;
+	int	temp_head;
+	int	seq_size;
+	int	place;	
+} t_markup_info;
 typedef struct s_info_a_to_b
 {
 	int index_a;
@@ -38,4 +45,5 @@ int get_min_num (int a, int b);
 int get_max_num (int a, int b);
 void    elem_b_to_a (t_list **stack_a, t_list **stack_b, t_info_a_to_b elem_info_a_to_b);
 int get_num_abs (int a);
+void my_markup_greater_then (t_list **list);
 #endif

@@ -26,7 +26,7 @@ void print_list(t_list **listA)
 	printf("#################################\n------>%d<------\n", i);
 	while (list)
 	{
-		printf("----\nindex = %d\nkeep_a = %d\ncontent = %d\n", list->index, list->keep_a, list->content);
+		printf("----\nindex = %d keep_a = %d content = %d\n", list->index, list->keep_a, list->content);
 		// printf("\nindex = %2d	number = %d", list->index, j++);
 		list = list->next;
 	}
@@ -66,13 +66,15 @@ int check_swap_need(t_list **list, int false_count_before)
 	temp_list = NULL;
 	copy_list (&temp_list, list);
 	swap_stack (&temp_list);
-	markup_by_index(&temp_list);
+	// markup_by_index(&temp_list);
+	my_markup_greater_then(&temp_list);
 	if (false_count_before > false_counter(&temp_list))
 		ok = 1;
 	else
 		ok = 0;
 	return (ok);
 }
+
 
 void push_stack (t_list **stack_a, t_list **stack_b)
 {
@@ -134,11 +136,13 @@ void list_sort(t_list **list, t_list **stack_b)
 	false_count = false_counter(list);
 	while (false_count)
 	{
+		// print_list(list);
 		if (check_swap_need(list, false_count))
 		{
 			swap_stack (list);
 			ft_putendl_fd("sa", 1);
-			markup_by_index(list);
+			// markup_by_index(list);
+			my_markup_greater_then(list);
 		}
 		else if (0 == (*list)->keep_a)
 		{

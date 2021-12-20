@@ -84,16 +84,34 @@ void set_mark_up (t_list *list, t_markup_info *markup_info, int mrkp_head)
 	}
 }
 
-void my_markup_greater_then (t_list **list, int lst_size)
+int	find_max (t_list *stack)
+{
+	int	max;
+
+	max = -1;
+	while (stack)
+	{
+		if (stack->index > max)
+			max = stack->index;
+		stack = stack->next;
+	}
+	return (max);
+}
+
+void my_markup_greater_then (t_list **list)
 {
 	int				i;
 	int				max;
+	int				border;
+	int				lst_size;
 	int				mrkp_head;
 	t_markup_info	markup_info;
 
 	i = 0;
 	max = -1;
-	while (i < lst_size)
+	lst_size = ft_lstsize (*list);
+	border = find_max(*list);
+	while (i < border)
 	{
 		markup_info.temp_head = i;
 		find_sequence_size(*list, lst_size, &markup_info);

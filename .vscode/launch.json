@@ -9,8 +9,8 @@
 			"name": "(lldb) Запустить",
 			"type": "lldb",
 			"request": "launch",
-			"program": "${workspaceFolder}/${workspaceFolderBasename}",
-			"args": ["395 342 175 150 163 16 41 246 472 319 12 212 331 15 412 338 443 70 301 184 293 358 49 231"],
+			"program": "${workspaceFolder}/push_swap",
+			"args": ["121 246 89   4 284 381  11 166 55  7 133  103 198 3403"],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
 			"environment": [ { "name": "squid", "value": "clam" } ],
@@ -21,7 +21,7 @@
 			"name": "(lldb) Подключить",
 			"type": "lldb",
 			"request": "attach",
-			"program": "${workspaceFolder}/${workspaceFolderBasename}",
+			"program": "${workspaceFolder}/push_swap",
 			"processId": "${command:pickProcess}",
 			"MIMode": "lldb"
 		}

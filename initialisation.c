@@ -91,6 +91,8 @@ int initialisation(int *arr, t_list **listA, int arr_length)
 		ft_lstadd_back(listA, ft_lstnew(arr[i++], -1, -1));
 	sort_arr(arr, arr_length);
 	list_indexing (listA, arr, arr_length);
-	markup_by_index (listA);
+	// markup_by_index (listA);
+	// print_list(listA);
+	my_markup_greater_then(listA);
 	return (0);
 }
