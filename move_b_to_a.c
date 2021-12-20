@@ -1,80 +1,84 @@
 #include "push_swap.h"
 
 
-void go_rotate_stack (t_list **stack, int flag)
+void go_rotate_stack (t_list **stack, int sign)
 {
-	if (1 == flag)
+	if (1 == sign)
 		rotate_stack(stack);
-	else if (-1 == flag)
+	else if (-1 == sign)
 		reverse_rotate_stack(stack);
 }
 
-void    elem_b_to_a (t_list **stack_a, t_list **stack_b, t_info_a_to_b elem_info_a_to_b)
+void	print_command (int sign, char correct)
 {
-	int i;
-	int has_more_iterations;
+	if (sign == 1)
+	{
+		ft_putchar_fd ('r', 1);
+		ft_putchar_fd (correct, 1);
+		ft_putchar_fd ('\n', 1);
+	}
+	else if (sign == -1)
+	{
+		ft_putstr_fd ("rr", 1);
+		ft_putchar_fd (correct, 1);
+		ft_putchar_fd ('\n', 1);
+	}
+}
+
+void	prepare_diff_time (t_list **stack_a, t_list **stack_b, t_info_a_to_b elem_info_a_to_b)
+{
+	int	i;
 
 	i = 0;
-	if (elem_info_a_to_b.reverse_same_time)
-	{
-		while (i < elem_info_a_to_b.min_iterations)
+	while (i < elem_info_a_to_b.number_top_iterations_a)
 		{
 			go_rotate_stack (stack_a, elem_info_a_to_b.iterations_sign_a);
-			go_rotate_stack (stack_b, elem_info_a_to_b.iterations_sign_a);
-			if (elem_info_a_to_b.iterations_sign_a == 1)
-				ft_putendl_fd ("rr", 1);
-			else if (elem_info_a_to_b.iterations_sign_a == -1)
-				ft_putendl_fd ("rrr", 1);
-			i++;
-		}
-		while (i < elem_info_a_to_b.min_summary_iterations)
-		{
-			if (elem_info_a_to_b.has_more_iterations == 'A')
-			{
-				go_rotate_stack (stack_a, elem_info_a_to_b.iterations_sign_a);
-				if (elem_info_a_to_b.iterations_sign_a == 1)
-					ft_putendl_fd ("ra", 1);
-				else if (elem_info_a_to_b.iterations_sign_a == -1)
-					ft_putendl_fd ("rra", 1);
-			}
-			else if(elem_info_a_to_b.has_more_iterations == 'B')
-			{
-				go_rotate_stack (stack_b, elem_info_a_to_b.iterations_sign_b);
-				if (elem_info_a_to_b.iterations_sign_b == 1)
-					ft_putendl_fd ("rb", 1);
-				else if (elem_info_a_to_b.iterations_sign_b == -1)
-					ft_putendl_fd ("rrb", 1);
-			}
-			i++;
-		}
-	}
-	else
-	{
-		while (i < elem_info_a_to_b.number_top_iterations_a)
-		{
-			go_rotate_stack (stack_a, elem_info_a_to_b.iterations_sign_a);
-			if (elem_info_a_to_b.iterations_sign_a == 1)
-				ft_putendl_fd ("ra", 1);
-			else if (elem_info_a_to_b.iterations_sign_a == -1)
-				ft_putendl_fd ("rra", 1);
+			print_command (elem_info_a_to_b.iterations_sign_a, 'a');
 			i++;
 		}
 		i = 0;
 		while (i < elem_info_a_to_b.number_top_iterations_b)
 		{
 			go_rotate_stack (stack_b, elem_info_a_to_b.iterations_sign_b);
-			if (elem_info_a_to_b.iterations_sign_b == 1)
-				ft_putendl_fd ("rb", 1);
-			else if (elem_info_a_to_b.iterations_sign_b == -1)
-				ft_putendl_fd ("rrb", 1);
+			print_command (elem_info_a_to_b.iterations_sign_b, 'b');
 			i++;
 		}
+}
+
+void	prepare_same_time (t_list **stack_a, t_list **stack_b, t_info_a_to_b elem_info_a_to_b)
+{
+	int i;
+
+	i = 0;
+	while (i < elem_info_a_to_b.min_iterations)
+	{
+		go_rotate_stack (stack_a, elem_info_a_to_b.iterations_sign_a);
+		go_rotate_stack (stack_b, elem_info_a_to_b.iterations_sign_a);
+		print_command (elem_info_a_to_b.iterations_sign_a, 'r');
+		i++;
 	}
-	// if (elem_info_a_to_b.has_bigger_index == 'B')
-	// {
-	// 	rotate_stack (stack_a);
-	// 	ft_putendl_fd("ra", 1);
-	// }
+	while (i < elem_info_a_to_b.min_summary_iterations)
+	{
+		if (elem_info_a_to_b.has_more_iterations == 'A')
+		{
+			go_rotate_stack (stack_a, elem_info_a_to_b.iterations_sign_a);
+			print_command (elem_info_a_to_b.iterations_sign_a, 'a');
+		}
+		else if(elem_info_a_to_b.has_more_iterations == 'B')
+		{
+			go_rotate_stack (stack_b, elem_info_a_to_b.iterations_sign_b);
+			print_command (elem_info_a_to_b.iterations_sign_b, 'b');
+		}
+		i++;
+	}
+}
+
+void    elem_b_to_a (t_list **stack_a, t_list **stack_b, t_info_a_to_b elem_info_a_to_b)
+{
+	if (elem_info_a_to_b.reverse_same_time)
+		prepare_same_time (stack_a, stack_b, elem_info_a_to_b);
+	else
+		prepare_diff_time (stack_a, stack_b, elem_info_a_to_b);
 	push_stack (stack_b, stack_a);
 	ft_putendl_fd("pa", 1);
 }
