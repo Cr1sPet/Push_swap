@@ -15,7 +15,7 @@ t_info_a_to_b find_stack_b_elem (t_list *stack_b ,t_list **stack_bb, const int s
 		temp_stack_b = (temp_stack_b)->next;
 	}
 	elem_info_a_to_b.place_b  = i;
-	if (i < stack_b_size / 2)
+	if (stack_b_size - 1 - i >= i)
 	{
 		elem_info_a_to_b.number_top_iterations_b = i;
 		if (i)
@@ -41,7 +41,7 @@ void	find_stack_a_elem (t_list **stack_a, t_info_a_to_b *elem_info_a_to_b, int s
 	i = 0;
 	min = 2147483647;
 	temp_stack_a = *stack_a;
-	while (temp_stack_a)
+	while (temp_stack_a && min != 1)
 	{
 		temp = (elem_info_a_to_b[0]).index_b - (temp_stack_a)->index;
 		if (get_num_abs(temp) < min)
@@ -57,7 +57,7 @@ void	find_stack_a_elem (t_list **stack_a, t_info_a_to_b *elem_info_a_to_b, int s
 		temp_stack_a = temp_stack_a->next;
 		i++;
 	}
-	if ((elem_info_a_to_b[0]).place_a < stack_a_size / 2)
+	if ((elem_info_a_to_b[0]).place_a <= stack_a_size / 2)
 	{
 		(elem_info_a_to_b[0]).number_top_iterations_a = (elem_info_a_to_b[0]).place_a;
 		if ((elem_info_a_to_b[0]).place_a)
@@ -65,7 +65,7 @@ void	find_stack_a_elem (t_list **stack_a, t_info_a_to_b *elem_info_a_to_b, int s
 		else
 			(elem_info_a_to_b[0]).iterations_sign_a = 0;
 	}
-	else
+	else if ((elem_info_a_to_b[0]).place_a > stack_a_size / 2)
 	{
 		(elem_info_a_to_b[0]).number_top_iterations_a = (stack_a_size - (elem_info_a_to_b[0]).place_a);
 		(elem_info_a_to_b[0]).iterations_sign_a = -1;

@@ -14,12 +14,16 @@ int main (int argc, char *argv[])
 		return (0);
 	if (!ok)
 		return (0);
-	ft_putendl_fd("OK", 1);
 	initialisation(arr, &listA, arr_length - 1);
 	list_sort(&listA, &listB);
 	preparing_b_to_a(&listA, &listB);
-	print_list (&listA);
 	// print_list (&listB);
+	while (listA->index != 0)
+	{
+		rotate_stack (&listA);
+		ft_putendl_fd("ra", 1);
+	}
+	// print_list (&listA);
 	free (arr);
 	return (0);
 }

@@ -82,7 +82,7 @@ void push_stack (t_list **stack_a, t_list **stack_b)
 	(*stack_a)->next = NULL;
 	ft_lstadd_front(stack_b, *stack_a);
 	(*stack_a) = temp_list;
-	ft_putendl_fd("push", 1);
+	// ft_putendl_fd("push", 1);
 }
 
 void rotate_stack (t_list **list)
@@ -93,7 +93,7 @@ void rotate_stack (t_list **list)
 	(*list) = temp_list->next;
 	temp_list->next = NULL;
 	ft_lstadd_back(list, temp_list);
-	ft_putendl_fd("rotate", 1);
+	// ft_putendl_fd("rotate", 1);
 }
 
 void reverse_rotate_stack (t_list **list)
@@ -121,7 +121,7 @@ void reverse_rotate_stack (t_list **list)
 	la_list->next = (*list);
 	pre_last->next = NULL;
 	(*list) = la_list;
-	ft_putendl_fd("reverse rotate", 1);
+	// ft_putendl_fd("reverse rotate", 1);
 }
 
 void list_sort(t_list **list, t_list **stack_b)
