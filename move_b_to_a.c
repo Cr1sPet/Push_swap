@@ -71,8 +71,10 @@ void    elem_b_to_a (t_list **stack_a, t_list **stack_b, t_info_a_to_b elem_info
 		}
 	}
 	if (elem_info_a_to_b.has_bigger_index == 'B')
+	{
 		rotate_stack (stack_a);
-	ft_putendl_fd("ra", 1);
+		ft_putendl_fd("ra", 1);
+	}
 	push_stack (stack_b, stack_a);
 	ft_putendl_fd("pa", 1);
 }

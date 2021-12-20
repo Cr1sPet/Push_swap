@@ -26,8 +26,8 @@ void print_list(t_list **listA)
 	printf("#################################\n------>%d<------\n", i);
 	while (list)
 	{
-		// printf("----\nindex = %d\nkeep_a = %d\ncontent = %d\n", list->index, list->keep_a, list->content);
-		printf("\nindex = %2d	number = %d", list->index, j++);
+		printf("----\nindex = %d\nkeep_a = %d\ncontent = %d\n", list->index, list->keep_a, list->content);
+		// printf("\nindex = %2d	number = %d", list->index, j++);
 		list = list->next;
 	}
 	printf("\n");
@@ -143,12 +143,12 @@ void list_sort(t_list **list, t_list **stack_b)
 		else if (0 == (*list)->keep_a)
 		{
 			push_stack (list, stack_b);
-			// ft_putendl_fd("pb", 1);
+			ft_putendl_fd("pb", 1);
 		}
 		else
 		{
 			rotate_stack (list);
-			// ft_putendl_fd("ra", 1);
+			ft_putendl_fd("ra", 1);
 		}
 		false_count = false_counter(list);
 	}
