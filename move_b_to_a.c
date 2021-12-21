@@ -31,18 +31,18 @@ void	prepare_diff_time (t_list **stack_a, t_list **stack_b, t_info_a_to_b elem_i
 
 	i = 0;
 	while (i < elem_info_a_to_b.number_top_iterations_a)
-		{
-			go_rotate_stack (stack_a, elem_info_a_to_b.iterations_sign_a);
-			print_command (elem_info_a_to_b.iterations_sign_a, 'a');
-			i++;
-		}
-		i = 0;
-		while (i < elem_info_a_to_b.number_top_iterations_b)
-		{
-			go_rotate_stack (stack_b, elem_info_a_to_b.iterations_sign_b);
-			print_command (elem_info_a_to_b.iterations_sign_b, 'b');
-			i++;
-		}
+	{
+		go_rotate_stack (stack_a, elem_info_a_to_b.iterations_sign_a);
+		print_command (elem_info_a_to_b.iterations_sign_a, 'a');
+		i++;
+	}
+	i = 0;
+	while (i < elem_info_a_to_b.number_top_iterations_b)
+	{
+		go_rotate_stack (stack_b, elem_info_a_to_b.iterations_sign_b);
+		print_command (elem_info_a_to_b.iterations_sign_b, 'b');
+		i++;
+	}
 }
 
 void	prepare_same_time (t_list **stack_a, t_list **stack_b, t_info_a_to_b elem_info_a_to_b)
@@ -57,18 +57,16 @@ void	prepare_same_time (t_list **stack_a, t_list **stack_b, t_info_a_to_b elem_i
 		print_command (elem_info_a_to_b.iterations_sign_a, 'r');
 		i++;
 	}
-	while (i < elem_info_a_to_b.min_summary_iterations)
+	while (i < elem_info_a_to_b.number_top_iterations_a)
 	{
-		if (elem_info_a_to_b.has_more_iterations == 'A')
-		{
-			go_rotate_stack (stack_a, elem_info_a_to_b.iterations_sign_a);
-			print_command (elem_info_a_to_b.iterations_sign_a, 'a');
-		}
-		else if(elem_info_a_to_b.has_more_iterations == 'B')
-		{
-			go_rotate_stack (stack_b, elem_info_a_to_b.iterations_sign_b);
-			print_command (elem_info_a_to_b.iterations_sign_b, 'b');
-		}
+		go_rotate_stack (stack_a, elem_info_a_to_b.iterations_sign_a);
+		print_command (elem_info_a_to_b.iterations_sign_a, 'a');
+		i++;
+	}
+	while (i < elem_info_a_to_b.number_top_iterations_b)
+	{
+		go_rotate_stack (stack_b, elem_info_a_to_b.iterations_sign_b);
+		print_command (elem_info_a_to_b.iterations_sign_b, 'b');
 		i++;
 	}
 }

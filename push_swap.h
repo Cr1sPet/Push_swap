@@ -23,9 +23,7 @@ typedef struct s_info_a_to_b
 	int iterations_sign_b;
 	int min_summary_iterations;
 	int min_iterations;
-	char has_more_iterations;
 	int reverse_same_time;
-	char	has_bigger_index;
 } t_info_a_to_b;
 int		validation (int argc, char **argv, int **arr, int *arr_length);
 int		check_argv(char *str);

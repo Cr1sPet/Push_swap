@@ -1,9 +1,8 @@
 #include "push_swap.h"
 
-void normalize (t_list *cpylistA, t_list **listA, int lst_size)
+int find_head (t_list *cpylistA)
 {
 	int	i;
-	int	num;
 
 	i = 0;
 	while (cpylistA->index != 0)
@@ -11,6 +10,17 @@ void normalize (t_list *cpylistA, t_list **listA, int lst_size)
 		i++;
 		cpylistA = cpylistA->next;
 	}
+	return (i);
+}
+
+void normalize (t_list **listA, int lst_size)
+{
+	int	i;
+	int	num;
+
+	i = find_head (*listA);
+	if (!i)
+		return ;
 	if (lst_size / 2 >= i)
 		while ((*listA)->index != 0)
 		{
@@ -21,11 +31,10 @@ void normalize (t_list *cpylistA, t_list **listA, int lst_size)
 	{
 		num = lst_size - i;
 		i = 0;
-		while (i < num)
+		while (i++ < num)
 		{
 			reverse_rotate_stack (listA);
 			ft_putendl_fd("rra", 1);
-			i++;
 		}
 	}
 }
@@ -52,7 +61,7 @@ int main (int argc, char *argv[])
 	// print_list (&listA);
 	preparing_b_to_a(&listA, &listB);
 	// print_list (&listB);
-	normalize (listA, &listA, ft_lstsize(listA));
+	normalize (&listA, ft_lstsize(listA));
 	// print_list (&listA);
 	free (arr);
 	return (0);
