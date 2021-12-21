@@ -85,14 +85,17 @@ void markup_by_index (t_list **listA)
 int initialisation(int *arr, t_list **listA, int arr_length)
 {
 	int	i;
-
+	t_list	*temp_list;
 	i = 0;
 	while (i < arr_length)
-		ft_lstadd_back(listA, ft_lstnew(arr[i++], -1, -1));
+	{
+		temp_list = ft_lstnew(arr[i++], -1, -1);
+		if (NULL == temp_list)
+			return (0);
+		ft_lstadd_back(listA, temp_list);
+	}
 	sort_arr(arr, arr_length);
 	list_indexing (listA, arr, arr_length);
-	// markup_by_index (listA);
-	// print_list(listA);
 	my_markup_greater_then(listA);
-	return (0);
+	return (1);
 }

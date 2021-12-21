@@ -1,5 +1,17 @@
 #include "push_swap.h"
 
+void clear_list (t_list **list)
+{
+	t_list *temp_list;
+
+	while (*list)
+	{
+		temp_list = (*list)->next;
+		free (*list);
+		(*list) = (*list)->next;
+	}
+}
+
 int find_head (t_list *cpylistA)
 {
 	int	i;
@@ -54,15 +66,13 @@ int main (int argc, char *argv[])
 		return (0);
 	if (!ok)
 		return (0);
-	// print_list (&listA);
-	initialisation(arr, &listA, arr_length - 1);
-	// print_list (&listA);
-	list_sort(&listA, &listB);
-	// print_list (&listA);
-	preparing_b_to_a(&listA, &listB);
-	// print_list (&listB);
-	normalize (&listA, ft_lstsize(listA));
-	// print_list (&listA);
+	if (!initialisation(arr, &listA, arr_length - 1))
+		return (0);
 	free (arr);
+	list_sort(&listA, &listB);
+	if (!preparing_b_to_a(&listA, &listB))
+		return (0);
+	normalize (&listA, ft_lstsize(listA));
+	clear_list (&listA);
 	return (0);
 }

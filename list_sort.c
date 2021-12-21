@@ -34,33 +34,18 @@ void print_list(t_list **listA)
 	i++;
 }
 
-
-
-void	copy_list(t_list **dest, t_list **src)
-{
-	t_list	*hello;
-
-	hello = *src;
-	while (hello)
-	{
-		ft_lstadd_back(dest, ft_lstnew(hello->content, hello->index, hello->keep_a));
-		hello = hello->next;
-	}
-}
-
 int check_swap_need(t_list **list, int false_count_before)
 {
 	int		ok;
-	t_list	*temp_list;
 
-	temp_list = NULL;
-	copy_list (&temp_list, list);
-	swap_stack (&temp_list);
-	my_markup_greater_then(&temp_list);
-	if (false_count_before > false_counter(&temp_list))
+	swap_stack (list);
+	my_markup_greater_then(list);
+	if (false_count_before > false_counter(list))
 		ok = 1;
 	else
 		ok = 0;
+	swap_stack (list);
+	my_markup_greater_then(list);
 	return (ok);
 }
 

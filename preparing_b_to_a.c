@@ -173,6 +173,7 @@ int preparing_b_to_a(t_list **stack_a, t_list **stack_b)
 			return (0);
 		elem_numb = find_min_elem_number (elems_info_a_to_b, stack_b_size);
 		elem_b_to_a (stack_a, stack_b, elems_info_a_to_b[elem_numb]);
+		free (elems_info_a_to_b);
 	}
-	return (0);
+	return (1);
 }
