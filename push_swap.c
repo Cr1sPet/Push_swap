@@ -8,7 +8,7 @@ void clear_list (t_list **list)
 	{
 		temp_list = (*list)->next;
 		free (*list);
-		(*list) = (*list)->next;
+		(*list) = temp_list;
 	}
 }
 
