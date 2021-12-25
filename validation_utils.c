@@ -1,5 +1,5 @@
 #include "push_swap.h"
-int str_duo_len (char **arr, int *arr_length)
+int	str_duo_len(char **arr, int *arr_length)
 {
 	int	i;
 
@@ -10,7 +10,7 @@ int str_duo_len (char **arr, int *arr_length)
 	return (i);
 }
 
-int  write_bad_message()
+int	write_bad_message(void)
 {
 	ft_putendl_fd("Error", 2);
 	return (0);
@@ -34,7 +34,7 @@ int	check_argv(char *str)
 	while (str[i])
 	{
 		if ((!ft_isdigit(str[i])) && '-' != str[i])
-				return (0);
+			return (0);
 		i++;
 	}
 	return (check_atoi(str));

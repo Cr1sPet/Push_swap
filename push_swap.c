@@ -1,8 +1,8 @@
 #include "push_swap.h"
 
-void clear_list (t_list **list)
+void	clear_list(t_list **list)
 {
-	t_list *temp_list;
+	t_list	*temp_list;
 
 	while (*list)
 	{
@@ -12,7 +12,7 @@ void clear_list (t_list **list)
 	}
 }
 
-int find_head (t_list *cpylistA)
+int	find_head(t_list *cpylistA)
 {
 	int	i;
 
@@ -25,7 +25,7 @@ int find_head (t_list *cpylistA)
 	return (i);
 }
 
-void normalize (t_list **listA, int lst_size)
+void	normalize(t_list **listA, int lst_size)
 {
 	int	i;
 	int	num;
@@ -34,12 +34,14 @@ void normalize (t_list **listA, int lst_size)
 	if (!i)
 		return ;
 	if (lst_size / 2 >= i)
+	{
 		while ((*listA)->index != 0)
 		{
 			rotate_stack (listA);
 			ft_putendl_fd("ra", 1);
 		}
-	else if (lst_size / 2 <  i)
+	}
+	else if (lst_size / 2 < i)
 	{
 		num = lst_size - i;
 		i = 0;
@@ -50,6 +52,12 @@ void normalize (t_list **listA, int lst_size)
 		}
 	}
 }
+
+// int	five_sort(int *arr, t_list **listA, int arr_length)
+// {
+// 	if (!initialisation(arr, &listA, arr_length - 1))
+// 		return (0);
+// }
 
 int main (int argc, char *argv[])
 {
@@ -68,11 +76,11 @@ int main (int argc, char *argv[])
 		return (0);
 	if (!initialisation(arr, &listA, arr_length - 1))
 		return (0);
-	free (arr);
 	list_sort(&listA, &listB);
 	if (!preparing_b_to_a(&listA, &listB))
 		return (0);
 	normalize (&listA, ft_lstsize(listA));
+	free (arr);
 	clear_list (&listA);
 	return (0);
 }

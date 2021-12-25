@@ -1,9 +1,9 @@
 #include "push_swap.h"
 
-int  false_counter(t_list **list)
+int	false_counter(t_list **list)
 {
 	int		counter;
-	t_list  *stack_a;
+	t_list	*stack_a;
 
 	counter = 0;
 	stack_a = *list;
@@ -34,7 +34,7 @@ void print_list(t_list **listA)
 	i++;
 }
 
-int check_swap_need(t_list **list, int false_count_before)
+int	check_swap_need(t_list **list, int false_count_before)
 {
 	int		ok;
 
@@ -49,7 +49,7 @@ int check_swap_need(t_list **list, int false_count_before)
 	return (ok);
 }
 
-void list_sort(t_list **list, t_list **stack_b)
+void	list_sort(t_list **list, t_list **stack_b)
 {
 	int		false_count;
 

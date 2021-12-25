@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static int check_individuality(int **arr, int argc)
+static int	check_individuality(int **arr, int argc)
 {
 	int	i;
 	int	j;
@@ -26,7 +26,7 @@ static int check_individuality(int **arr, int argc)
 	return (1);
 }
 
-static int try_split(char *str, char ***argv)
+static int	try_split(char *str, char ***argv)
 {
 	int	i;
 	int	ok;
@@ -46,7 +46,7 @@ static int try_split(char *str, char ***argv)
 	return (ok);
 }
 
-static int is_valid(int argc, char *argv[], int **input_arr, int fa)
+static int	is_valid(int argc, char *argv[], int **input_arr, int fa)
 {
 	int	i;
 	int	ok;
@@ -73,10 +73,10 @@ static int is_valid(int argc, char *argv[], int **input_arr, int fa)
 	return (ok);
 }
 
-int	validation (int argc, char **argv, int **arr, int *arr_length)
+int	validation(int argc, char **argv, int **arr, int *arr_length)
 {
-	int ok;
-	int	i;
+	int		ok;
+	int		i;
 	char	**new_argv;
 
 	i = 0;
@@ -92,7 +92,7 @@ int	validation (int argc, char **argv, int **arr, int *arr_length)
 			return (write_bad_message());
 		while (new_argv[i])
 			free (new_argv[i++]);
-		free (new_argv);	
+		free (new_argv);
 	}
 	else if (!is_valid(argc, argv, arr, 0))
 		return (write_bad_message());

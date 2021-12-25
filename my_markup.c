@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int find_place (t_list *list, int head, t_markup_info *markup_info)
+int	find_place(t_list *list, int head, t_markup_info *markup_info)
 {
 	int	i;
 
@@ -20,7 +20,8 @@ int find_place (t_list *list, int head, t_markup_info *markup_info)
 	return (1);
 }
 
-void find_seq_size (t_list *list, t_list *temp_list, t_markup_info *markup_info, int val)
+void	find_seq_size(t_list *list, t_list *temp_list,
+		t_markup_info *markup_info, int val)
 {
 	while (temp_list)
 	{
@@ -47,7 +48,7 @@ void find_seq_size (t_list *list, t_list *temp_list, t_markup_info *markup_info,
 	}
 }
 
-void find_sequence_size (t_list *list, t_markup_info *markup_info)
+void	find_sequence_size(t_list *list, t_markup_info *markup_info)
 {
 	int	val;
 
@@ -55,10 +56,11 @@ void find_sequence_size (t_list *list, t_markup_info *markup_info)
 	markup_info->seq_size = 0;
 	if (!find_place (list, val, markup_info))
 		return ;
-	find_seq_size (list, markup_info->markup_head, markup_info, markup_info->temp_head);
+	find_seq_size (list, markup_info->markup_head,
+		markup_info, markup_info->temp_head);
 }
 
-int	find_max (t_list *stack)
+int	find_max(t_list *stack)
 {
 	int	max;
 
@@ -72,7 +74,7 @@ int	find_max (t_list *stack)
 	return (max);
 }
 
-void my_markup_greater_then (t_list **list)
+void	my_markup_greater_then(t_list **list)
 {
 	int				i;
 	int				max;

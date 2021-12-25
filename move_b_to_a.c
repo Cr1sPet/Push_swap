@@ -1,7 +1,6 @@
 #include "push_swap.h"
 
-
-void go_rotate_stack (t_list **stack, int sign)
+void	go_rotate_stack(t_list **stack, int sign)
 {
 	if (1 == sign)
 		rotate_stack(stack);
@@ -9,7 +8,7 @@ void go_rotate_stack (t_list **stack, int sign)
 		reverse_rotate_stack(stack);
 }
 
-void	print_command (int sign, char correct)
+void	print_command(int sign, char correct)
 {
 	if (sign == 1)
 	{
@@ -25,58 +24,60 @@ void	print_command (int sign, char correct)
 	}
 }
 
-void	prepare_diff_time (t_list **stack_a, t_list **stack_b, t_info_a_to_b elem_info_a_to_b)
+void	prepare_diff_time(t_list **stack_a, t_list **stack_b,
+	t_b_to_a elem_info_a_to_b)
 {
 	int	i;
 
 	i = 0;
-	while (i < elem_info_a_to_b.number_top_iterations_a)
+	while (i < elem_info_a_to_b.iters_a)
 	{
-		go_rotate_stack (stack_a, elem_info_a_to_b.iterations_sign_a);
-		print_command (elem_info_a_to_b.iterations_sign_a, 'a');
+		go_rotate_stack (stack_a, elem_info_a_to_b.sign_a);
+		print_command (elem_info_a_to_b.sign_a, 'a');
 		i++;
 	}
 	i = 0;
-	while (i < elem_info_a_to_b.number_top_iterations_b)
+	while (i < elem_info_a_to_b.iters_b)
 	{
-		go_rotate_stack (stack_b, elem_info_a_to_b.iterations_sign_b);
-		print_command (elem_info_a_to_b.iterations_sign_b, 'b');
+		go_rotate_stack (stack_b, elem_info_a_to_b.sign_b);
+		print_command (elem_info_a_to_b.sign_b, 'b');
 		i++;
 	}
 }
 
-void	prepare_same_time (t_list **stack_a, t_list **stack_b, t_info_a_to_b elem_info_a_to_b)
+void	prepare_same_time(t_list **stack_a,
+	t_list **stack_b, t_b_to_a elem_info_a_to_b)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < elem_info_a_to_b.min_iterations)
 	{
-		go_rotate_stack (stack_a, elem_info_a_to_b.iterations_sign_a);
-		go_rotate_stack (stack_b, elem_info_a_to_b.iterations_sign_a);
-		print_command (elem_info_a_to_b.iterations_sign_a, 'r');
+		go_rotate_stack (stack_a, elem_info_a_to_b.sign_a);
+		go_rotate_stack (stack_b, elem_info_a_to_b.sign_a);
+		print_command (elem_info_a_to_b.sign_a, 'r');
 		i++;
 	}
-	while (i < elem_info_a_to_b.number_top_iterations_a)
+	while (i < elem_info_a_to_b.iters_a)
 	{
-		go_rotate_stack (stack_a, elem_info_a_to_b.iterations_sign_a);
-		print_command (elem_info_a_to_b.iterations_sign_a, 'a');
+		go_rotate_stack (stack_a, elem_info_a_to_b.sign_a);
+		print_command (elem_info_a_to_b.sign_a, 'a');
 		i++;
 	}
-	while (i < elem_info_a_to_b.number_top_iterations_b)
+	while (i < elem_info_a_to_b.iters_b)
 	{
-		go_rotate_stack (stack_b, elem_info_a_to_b.iterations_sign_b);
-		print_command (elem_info_a_to_b.iterations_sign_b, 'b');
+		go_rotate_stack (stack_b, elem_info_a_to_b.sign_b);
+		print_command (elem_info_a_to_b.sign_b, 'b');
 		i++;
 	}
 }
 
-void    elem_b_to_a (t_list **stack_a, t_list **stack_b, t_info_a_to_b elem_info_a_to_b)
+void	elem_b_to_a(t_list **stack_a, t_list **stack_b, t_b_to_a info_b_to_a)
 {
-	if (elem_info_a_to_b.reverse_same_time)
-		prepare_same_time (stack_a, stack_b, elem_info_a_to_b);
+	if (info_b_to_a.reverse_same_time)
+		prepare_same_time (stack_a, stack_b, info_b_to_a);
 	else
-		prepare_diff_time (stack_a, stack_b, elem_info_a_to_b);
+		prepare_diff_time (stack_a, stack_b, info_b_to_a);
 	push_stack (stack_b, stack_a);
 	ft_putendl_fd("pa", 1);
 }
