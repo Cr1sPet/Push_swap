@@ -72,22 +72,17 @@ int	main(int argc, char *argv[])
 {
 	int		arr_length;
 	int		*arr;
-	t_list	*listA;
-	t_list	*listB;
+	t_list	*list_a;
+	t_list	*list_b;
 
-	listA = NULL;
-	listB = NULL;
+	list_a = NULL;
+	list_b = NULL;
 	arr = validation(argc, argv, &arr_length);
-	if (!initialisation(arr, &listA, arr_length))
-		return (0);
-	list_sort(&listA, &listB);
-	if (!preparing_b_to_a(&listA, &listB))
-	{
-		clear_list (&listA);
-		return (0);
-	}
-	normalize (&listA, ft_lstsize(listA));
+	initialisation(arr, &list_a, arr_length);
+	a_to_b(&list_a, &list_b);
+	b_to_a(&list_a, &list_b);
+	normalize (&list_a, ft_lstsize(list_a));
 	free (arr);
-	clear_list (&listA);
+	clear_list (&list_a);
 	return (0);
 }

@@ -78,6 +78,6 @@ int	initialisation(int *arr, t_list **list_a, int arr_len)
 	sort_arr(arr, arr_len);
 	list_indexing(*list_a, arr, arr_len);
 	a_sz = ft_lstsize (*list_a);
-	my_markup_greater_then(list_a, a_sz);
+	markup_gt(list_a, a_sz);
 	return (1);
 }

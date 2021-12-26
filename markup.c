@@ -60,7 +60,7 @@ void	find_seq_size(t_list *list, t_list *temp_list,
 	}
 }
 
-void	find_sequence_size(t_list *list, t_markup_info *markup_info)
+void	find_seq_sz(t_list *list, t_markup_info *markup_info)
 {
 	markup_info->seq_size = 0;
 	if (!find_place (list, markup_info->temp_head, markup_info))
@@ -83,7 +83,7 @@ int	find_max(t_list *stack)
 	return (max);
 }
 
-void	my_markup_greater_then(t_list **list, int a_sz)
+void	markup_gt(t_list **list, int a_sz)
 {
 	int				i;
 	int				max;
@@ -95,7 +95,7 @@ void	my_markup_greater_then(t_list **list, int a_sz)
 	while (i < a_sz - 1)
 	{
 		markup_info.temp_head = i;
-		find_sequence_size (*list, &markup_info);
+		find_seq_sz (*list, &markup_info);
 		if (markup_info.seq_size > max)
 		{
 			max = markup_info.seq_size;
@@ -104,5 +104,5 @@ void	my_markup_greater_then(t_list **list, int a_sz)
 		i++;
 	}
 	markup_info.temp_head = mrkp_head;
-	find_sequence_size (*list, &markup_info);
+	find_seq_sz (*list, &markup_info);
 }

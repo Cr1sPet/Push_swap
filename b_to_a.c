@@ -90,7 +90,7 @@ void	find_a_elem(t_list **stack_a, t_b_to_a *info_b_to_a, int stack_a_size)
 	set_iterations_a (info_b_to_a, stack_a_size);
 }
 
-int	preparing_b_to_a(t_list **stack_a, t_list **stack_b)
+int	b_to_a(t_list **stack_a, t_list **stack_b)
 {
 	int				elem_numb;
 	int				a_sz;

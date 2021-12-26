@@ -33,17 +33,17 @@ int	check_swap_need(t_list **list, int false_count_before, int a_sz)
 	int		ok;
 
 	swap_stack (list);
-	my_markup_greater_then(list, a_sz);
+	markup_gt(list, a_sz);
 	if (false_count_before > false_counter(list))
 		ok = 1;
 	else
 		ok = 0;
 	swap_stack (list);
-	my_markup_greater_then(list, a_sz);
+	markup_gt(list, a_sz);
 	return (ok);
 }
 
-void	list_sort(t_list **list, t_list **stack_b)
+void	a_to_b(t_list **list, t_list **stack_b)
 {
 	int		false_count;
 	int		a_sz;
@@ -56,7 +56,7 @@ void	list_sort(t_list **list, t_list **stack_b)
 		{
 			swap_stack (list);
 			ft_putendl_fd("sa", 1);
-			my_markup_greater_then(list, a_sz);
+			markup_gt(list, a_sz);
 		}
 		else if (0 == (*list)->keep_a)
 		{

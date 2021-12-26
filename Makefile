@@ -1,7 +1,7 @@
 NAME			=	push_swap
 
-SRCS			=	main.c preparing_b_to_a.c validation.c validation_utils.c my_markup.c\
-					move_b_to_a.c list_sort.c initialisation.c commands.c\
+SRCS			=	main.c b_to_a.c validation.c validation_utils.c markup.c\
+					move_b_to_a.c a_to_b.c initialisation.c commands.c\
 					b_to_a_utils.c
 
 SRCS_B			=
