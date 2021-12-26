@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   my_markup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/26 15:03:54 by jchopped          #+#    #+#             */
+/*   Updated: 2021/12/26 15:16:17 by jchopped         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	find_place(t_list *list, int head, t_markup_info *markup_info)
@@ -50,11 +62,8 @@ void	find_seq_size(t_list *list, t_list *temp_list,
 
 void	find_sequence_size(t_list *list, t_markup_info *markup_info)
 {
-	int	val;
-
-	val = markup_info->temp_head;
 	markup_info->seq_size = 0;
-	if (!find_place (list, val, markup_info))
+	if (!find_place (list, markup_info->temp_head, markup_info))
 		return ;
 	find_seq_size (list, markup_info->markup_head,
 		markup_info, markup_info->temp_head);
@@ -74,7 +83,7 @@ int	find_max(t_list *stack)
 	return (max);
 }
 
-void	my_markup_greater_then(t_list **list)
+void	my_markup_greater_then(t_list **list, int a_sz)
 {
 	int				i;
 	int				max;
@@ -83,8 +92,7 @@ void	my_markup_greater_then(t_list **list)
 
 	i = 0;
 	max = -1;
-	markup_info.border = find_max(*list);
-	while (i < markup_info.border)
+	while (i < a_sz - 1)
 	{
 		markup_info.temp_head = i;
 		find_sequence_size (*list, &markup_info);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   preparing_b_to_a.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/26 15:03:13 by jchopped          #+#    #+#             */
+/*   Updated: 2021/12/26 15:09:35 by jchopped         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	set_iterations_a(t_b_to_a *info_b_to_a, int stack_a_size)
@@ -91,7 +103,11 @@ int	preparing_b_to_a(t_list **stack_a, t_list **stack_b)
 		b_sz = ft_lstsize (*stack_b);
 		info_b_to_a = get_inf_arr(stack_a, stack_b, a_sz, b_sz);
 		if (NULL == info_b_to_a)
-			return (0);
+		{
+			clear_list (stack_a);
+			clear_list (stack_b);
+			exit (1);
+		}
 		elem_numb = find_min_elem_number (info_b_to_a, b_sz);
 		elem_b_to_a (stack_a, stack_b, info_b_to_a[elem_numb]);
 		free (info_b_to_a);

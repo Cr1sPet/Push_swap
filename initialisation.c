@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   initialisation.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/26 15:03:59 by jchopped          #+#    #+#             */
+/*   Updated: 2021/12/26 15:24:17 by jchopped         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	sort_arr(int *arr, int arr_length)
@@ -24,58 +36,48 @@ static void	sort_arr(int *arr, int arr_length)
 	}
 }
 
-static void	list_indexing(t_list **listA, int *arr, int arr_length)
+static void	list_indexing(t_list *list_a, int *arr, int arr_len)
 {
 	int		i;
 	int		ok;
-	t_list	*list;
 
-	list = *listA;
-	while (list)
+	while (list_a)
 	{
 		i = 0;
 		ok = 1;
-		while (i < arr_length && ok)
+		while (i < arr_len && ok)
 		{
-			if (list->content == arr[i])
+			if (list_a->content == arr[i])
 			{
-				list->index = i;
+				list_a->index = i;
 				ok = 0;
 			}
 			i++;
 		}
-		list = list->next;
+		list_a = list_a->next;
 	}
 }
 
-void	print_arr(int *arr, int arr_length)
-{
-	int	i;
-
-	i = 0;
-	while (i < arr_length)
-	{
-		printf("%d ", arr[i]);
-		i++;
-	}
-	printf("\n");
-}
-
-int	initialisation(int *arr, t_list **listA, int arr_length)
+int	initialisation(int *arr, t_list **list_a, int arr_len)
 {
 	int		i;
+	int		a_sz;
 	t_list	*temp_list;
 
-	i = 0;
-	while (i < arr_length)
+	i = arr_len - 1;
+	while (i >= 0)
 	{
-		temp_list = ft_lstnew(arr[i++], -1, -1);
+		temp_list = ft_lstnew(arr[i--], -1, -1);
 		if (NULL == temp_list)
-			return (0);
-		ft_lstadd_back(listA, temp_list);
+		{
+			clear_list (list_a);
+			exit (1);
+		}
+		ft_lstadd_front(list_a, temp_list);
 	}
-	sort_arr(arr, arr_length);
-	list_indexing(listA, arr, arr_length);
-	my_markup_greater_then(listA);
+	sort_arr(arr, arr_len);
+	list_indexing(*list_a, arr, arr_len);
+	a_sz = ft_lstsize (*list_a);
+	my_markup_greater_then(list_a, a_sz);
 	return (1);
 }

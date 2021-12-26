@@ -1,14 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/26 15:03:23 by jchopped          #+#    #+#             */
+/*   Updated: 2021/12/26 15:10:00 by jchopped         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	clear_list(t_list **list)
 {
 	t_list	*temp_list;
 
-	while (*list)
+	if (*list)
 	{
-		temp_list = (*list)->next;
-		free (*list);
-		(*list) = temp_list;
+		while (*list)
+		{
+			temp_list = (*list)->next;
+			free (*list);
+			(*list) = temp_list;
+		}
 	}
 }
 
@@ -53,32 +68,24 @@ void	normalize(t_list **listA, int lst_size)
 	}
 }
 
-// int	five_sort(int *arr, t_list **listA, int arr_length)
-// {
-// 	if (!initialisation(arr, &listA, arr_length - 1))
-// 		return (0);
-// }
-
-int main (int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	int ok;
-	int arr_length;
-	int *arr;
+	int		arr_length;
+	int		*arr;
 	t_list	*listA;
 	t_list	*listB;
 
 	listA = NULL;
 	listB = NULL;
-	ok = validation(argc, argv, &arr, &arr_length);
-	if (-1 == ok)
-		return (0);
-	if (!ok)
-		return (0);
-	if (!initialisation(arr, &listA, arr_length - 1))
+	arr = validation(argc, argv, &arr_length);
+	if (!initialisation(arr, &listA, arr_length))
 		return (0);
 	list_sort(&listA, &listB);
 	if (!preparing_b_to_a(&listA, &listB))
+	{
+		clear_list (&listA);
 		return (0);
+	}
 	normalize (&listA, ft_lstsize(listA));
 	free (arr);
 	clear_list (&listA);

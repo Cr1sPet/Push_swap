@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   b_to_a_utils.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/26 15:04:07 by jchopped          #+#    #+#             */
+/*   Updated: 2021/12/26 15:04:12 by jchopped         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	get_max_num(int a, int b)
@@ -15,32 +27,6 @@ int	get_min_num(int a, int b)
 	else
 		return (b);
 }
-
-// int	find_best_elem(t_b_to_a	*info_b_to_a, int stack_b_size, int min)
-// {
-// 	int	i;
-// 	int	min1;
-// 	int	num;
-
-// 	i = 0;
-// 	num = 0;
-// 	min1 = 2000000000;
-// 	while (i < stack_b_size)
-// 	{
-// 		if ((info_b_to_a[i]).min_sum_iters == min)
-// 		{
-// 			if ((info_b_to_a[i]).iters_a < min1)
-// 			{
-// 				num = i;
-// 				min1 = (info_b_to_a[i]).iters_a;
-// 				if ((info_b_to_a[i]).iters_a == 0)
-// 					return (i);
-// 			}
-// 		}
-// 		i++;
-// 	}
-// 	return (num);
-// }
 
 int	find_min_elem_number(t_b_to_a	*info_b_to_a, int stack_b_size)
 {

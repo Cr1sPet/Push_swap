@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/26 15:03:46 by jchopped          #+#    #+#             */
+/*   Updated: 2021/12/26 15:15:35 by jchopped         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -28,9 +40,10 @@ typedef struct s_b_to_a
 	int	reverse_same_time;
 }	t_b_to_a;
 
-int			validation(int argc, char **argv, int **arr, int *arr_length);
-int			check_argv(char *str);
+int			*validation(int argc, char **argv, int *arr_length);
 int			check_atoi(char *str);
+void		clear_list(t_list **list);
+void		pre_valid(char *str, char **res);
 int			str_duo_len(char **arr, int *arr_length);
 int			write_bad_message(void);
 int			initialisation(int *arr, t_list **list, int arr_length);
@@ -40,7 +53,7 @@ int			get_min_num(int a, int b);
 int			get_max_num(int a, int b);
 int			get_num_abs(int a);
 int			find_min_elem_number(t_b_to_a	*info_b_to_a, int stack_b_size);
-void		my_markup_greater_then(t_list **list);
+void		my_markup_greater_then(t_list **list, int lst_sz);
 void		list_sort(t_list **list, t_list **stack_b);
 void		reverse_rotate_stack(t_list **list);
 void		rotate_stack(t_list **list);

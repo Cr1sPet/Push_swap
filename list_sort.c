@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_sort.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/26 15:03:09 by jchopped          #+#    #+#             */
+/*   Updated: 2021/12/26 15:15:19 by jchopped         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	false_counter(t_list **list)
@@ -16,51 +28,35 @@ int	false_counter(t_list **list)
 	return (counter);
 }
 
-void print_list(t_list **listA)
-{
-	t_list *list;
-	static int i = 0;
-	int j = 0;
-
-	list = *listA;
-	printf("#################################\n------>%d<------\n", i);
-	while (list)
-	{
-		printf("----\nindex = %d keep_a = %d content = %d\n", list->index, list->keep_a, list->content);
-		// printf("\nindex = %2d	number = %d", list->index, j++);
-		list = list->next;
-	}
-	printf("\n");
-	i++;
-}
-
-int	check_swap_need(t_list **list, int false_count_before)
+int	check_swap_need(t_list **list, int false_count_before, int a_sz)
 {
 	int		ok;
 
 	swap_stack (list);
-	my_markup_greater_then(list);
+	my_markup_greater_then(list, a_sz);
 	if (false_count_before > false_counter(list))
 		ok = 1;
 	else
 		ok = 0;
 	swap_stack (list);
-	my_markup_greater_then(list);
+	my_markup_greater_then(list, a_sz);
 	return (ok);
 }
 
 void	list_sort(t_list **list, t_list **stack_b)
 {
 	int		false_count;
+	int		a_sz;
 
+	a_sz = ft_lstsize (*list);
 	false_count = false_counter(list);
 	while (false_count)
 	{
-		if (check_swap_need(list, false_count))
+		if (check_swap_need(list, false_count, a_sz))
 		{
 			swap_stack (list);
 			ft_putendl_fd("sa", 1);
-			my_markup_greater_then(list);
+			my_markup_greater_then(list, a_sz);
 		}
 		else if (0 == (*list)->keep_a)
 		{
