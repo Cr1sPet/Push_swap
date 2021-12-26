@@ -87,11 +87,9 @@ static int	splitter(char *str, char ***argv)
 static void	is_valid(int argc, char *argv[], int **input_arr)
 {
 	int	i;
-	int	ok;
 	int	*arr;
 
 	i = 0;
-	ok = 1;
 	arr = (int *)malloc(sizeof(int) * (argc));
 	if (NULL == arr)
 		exit (1);

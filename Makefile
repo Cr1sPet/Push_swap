@@ -33,7 +33,7 @@ $(NAME):		$(OBJ)
 				$(CC) $(OBJ) -I$ {HEADER} ${LIBFT} -o $(NAME)
 
 %.o:			%.c $(HEADER)
-				$(CC)  $(FLAGS) -I$ {HEADER} -c $< -o $@
+				$(CC) $(FLAGS) -I$ {HEADER} -c $< -o $@
 
 bonus:
 				make OBJ="$(OBJ_B)" all

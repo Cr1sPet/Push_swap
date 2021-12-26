@@ -41,7 +41,7 @@ int	check_atoi(char *str)
 		i++;
 	}
 	res = ft_atoi(str);
-	if ((2 < ft_strlen(str)) && (-1 == ft_atoi(str) || 0 == ft_atoi(str)))
+	if ((2 < ft_strlen(str)) && (-1 == res || 0 == res))
 		return (0);
 	return (1);
 }
