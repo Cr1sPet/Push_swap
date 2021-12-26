@@ -6,7 +6,7 @@
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 15:44:46 by jchopped          #+#    #+#             */
-/*   Updated: 2021/12/26 16:07:59 by jchopped         ###   ########.fr       */
+/*   Updated: 2021/12/26 16:23:26 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_list 
+typedef struct s_list
 {
 	void	*next;
 	int		index;
 	int		keep_a;
 	int		content;
 
-} t_list;
+}	t_list;
 void	ft_lstadd_front(t_list **lst, t_list *new_list);
 void	ft_lstadd_back(t_list **lst, t_list *new_list);
 size_t	ft_strlen(const char *str);
