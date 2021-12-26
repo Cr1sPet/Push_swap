@@ -117,7 +117,7 @@ int	*validation(int argc, char **argv, int *arr_length)
 	if (ft_strlen(res) == 1 && res[0] == ' ')
 	{
 		free (res);
-		write_bad_message();
+		exit (1);
 	}
 	splitter (res, &new_argv);
 	is_valid(str_duo_len(new_argv, arr_length), new_argv, &arr);

@@ -4,7 +4,7 @@ SRCS			=	main.c b_to_a.c validation.c validation_utils.c markup.c\
 					move_b_to_a.c a_to_b.c initialisation.c commands.c\
 					b_to_a_utils.c
 
-SRCS_B			=
+SRCS_B			=	
 
 HEADER			= push_swap.h
 
@@ -32,11 +32,12 @@ $(NAME):		$(OBJ)
 				@$(MAKE) bonus -C ./libft
 				$(CC) $(OBJ) -I$ {HEADER} ${LIBFT} -o $(NAME)
 
+
 %.o:			%.c $(HEADER)
 				$(CC) -g $(FLAGS) -I$ {HEADER} -c $< -o $@
 
-bonus:
-				make OBJ="$(OBJ_B)" all
+bonus:			
+				
 
 clean:			
 				@$(MAKE) clean -C ./libft
@@ -44,6 +45,6 @@ clean:
 
 fclean:			clean
 				@$(MAKE) fclean -C ./libft
-				$(RM) $(NAME)
+				$(RM) $(NAME) $(NAME_B)
 
-re:				fclean $(NAME)
+re:				fclean $(NAME) $(NAME_B)
