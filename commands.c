@@ -6,7 +6,7 @@
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 15:04:02 by jchopped          #+#    #+#             */
-/*   Updated: 2021/12/26 15:05:03 by jchopped         ###   ########.fr       */
+/*   Updated: 2021/12/26 15:47:09 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	reverse_rotate_stack(t_list **list)
 
 	i = 0;
 	la_list = *list;
+	pre_last = NULL;
 	lst_size = ft_lstsize(*list);
 	while (i < lst_size)
 	{

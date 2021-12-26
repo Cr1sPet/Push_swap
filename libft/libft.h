@@ -6,7 +6,7 @@
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 15:44:46 by jchopped          #+#    #+#             */
-/*   Updated: 2021/10/17 13:22:36 by jchopped         ###   ########.fr       */
+/*   Updated: 2021/12/26 16:07:59 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ typedef struct s_list
 	int		content;
 
 } t_list;
-void	ft_lstadd_front(t_list **lst, t_list *new);
-void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new_list);
+void	ft_lstadd_back(t_list **lst, t_list *new_list);
 size_t	ft_strlen(const char *str);
 int		ft_isalpha(int ch);
 int		ft_isdigit(int ch);

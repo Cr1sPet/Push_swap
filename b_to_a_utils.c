@@ -6,7 +6,7 @@
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 15:04:07 by jchopped          #+#    #+#             */
-/*   Updated: 2021/12/26 15:04:12 by jchopped         ###   ########.fr       */
+/*   Updated: 2021/12/26 15:49:06 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	find_min_elem_number(t_b_to_a	*info_b_to_a, int stack_b_size)
 	return (num);
 }
 
-void	find_min_summary_iterations(t_b_to_a	*elem, int stack_b_size)
+void	find_min_summary_iterations(t_b_to_a	*elem)
 {
 	(elem[0]).min_iterations
 		= get_min_num ((elem[0]).iters_a,
@@ -72,7 +72,6 @@ void	find_min_summary_iterations(t_b_to_a	*elem, int stack_b_size)
 t_b_to_a	*get_inf_arr(t_list **list_a, t_list **list_b, int a_sz, int b_sz)
 {
 	int				i;
-	t_list			*stack_a;
 	t_list			*stack_b;
 	t_b_to_a		*info_b_to_a;
 
@@ -85,7 +84,7 @@ t_b_to_a	*get_inf_arr(t_list **list_a, t_list **list_b, int a_sz, int b_sz)
 	{
 		info_b_to_a[i] = find_b_elem (stack_b, list_b, b_sz);
 		find_a_elem (list_a, &(info_b_to_a[i]), a_sz);
-		find_min_summary_iterations (&(info_b_to_a[i]), b_sz);
+		find_min_summary_iterations (&(info_b_to_a[i]));
 		i++;
 		stack_b = stack_b->next;
 	}
