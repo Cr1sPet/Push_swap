@@ -37,6 +37,8 @@ int	check_atoi(char *str)
 	while (str[i])
 	{
 		if ('-' == str[i] && i != 0)
+				return (0);
+		if (!ft_isdigit(str[i]) && str[i] != '-')
 			return (0);
 		i++;
 	}
