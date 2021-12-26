@@ -13,7 +13,7 @@ int	str_duo_len(char **arr, int *arr_length)
 int	write_bad_message(void)
 {
 	ft_putendl_fd("Error", 2);
-	return (0);
+	exit (1);
 }
 
 int	check_atoi(char *str)

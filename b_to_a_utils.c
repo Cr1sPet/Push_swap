@@ -16,6 +16,32 @@ int	get_min_num(int a, int b)
 		return (b);
 }
 
+// int	find_best_elem(t_b_to_a	*info_b_to_a, int stack_b_size, int min)
+// {
+// 	int	i;
+// 	int	min1;
+// 	int	num;
+
+// 	i = 0;
+// 	num = 0;
+// 	min1 = 2000000000;
+// 	while (i < stack_b_size)
+// 	{
+// 		if ((info_b_to_a[i]).min_sum_iters == min)
+// 		{
+// 			if ((info_b_to_a[i]).iters_a < min1)
+// 			{
+// 				num = i;
+// 				min1 = (info_b_to_a[i]).iters_a;
+// 				if ((info_b_to_a[i]).iters_a == 0)
+// 					return (i);
+// 			}
+// 		}
+// 		i++;
+// 	}
+// 	return (num);
+// }
+
 int	find_min_elem_number(t_b_to_a	*info_b_to_a, int stack_b_size)
 {
 	int	i;
@@ -34,7 +60,7 @@ int	find_min_elem_number(t_b_to_a	*info_b_to_a, int stack_b_size)
 			min = (info_b_to_a[i]).min_sum_iters;
 		}
 	}
-	return (num);
+	return (find_best_elem(info_b_to_a, stack_b_size, min));
 }
 
 void	find_min_summary_iterations(t_b_to_a	*elem, int stack_b_size)

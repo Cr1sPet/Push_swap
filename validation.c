@@ -73,28 +73,33 @@ static int	is_valid(int argc, char *argv[], int **input_arr, int fa)
 	return (ok);
 }
 
+// int	validation(int argc, char **argv, int **arr, int *arr_length)
+// {
+// 	int		ok;
+// 	int		i;
+// 	char	**new_argv;
+
+// 	i = 0;
+// 	*arr_length = argc;
+// 	if (1 == argc)
+// 		return (0);
+// 	else if (2 == argc && ft_strchr(argv[1], ' '))
+// 	{
+// 		ok = try_split(argv[1], &new_argv);
+// 		if (!ok)
+// 			return (write_bad_message());
+// 		if (!is_valid(str_duo_len(new_argv, arr_length) + 1, new_argv, arr, 1))
+// 			return (write_bad_message());
+// 		while (new_argv[i])
+// 			free (new_argv[i++]);
+// 		free (new_argv);
+// 	}
+// 	else if (!is_valid(argc, argv, arr, 0))
+// 		return (write_bad_message());
+// 	return (1);
+// }
+
 int	validation(int argc, char **argv, int **arr, int *arr_length)
 {
-	int		ok;
-	int		i;
-	char	**new_argv;
-
-	i = 0;
-	*arr_length = argc;
-	if (1 == argc)
-		return (0);
-	else if (2 == argc && ft_strchr(argv[1], ' '))
-	{
-		ok = try_split(argv[1], &new_argv);
-		if (!ok)
-			return (write_bad_message());
-		if (!is_valid(str_duo_len(new_argv, arr_length) + 1, new_argv, arr, 1))
-			return (write_bad_message());
-		while (new_argv[i])
-			free (new_argv[i++]);
-		free (new_argv);
-	}
-	else if (!is_valid(argc, argv, arr, 0))
-		return (write_bad_message());
-	return (1);
+	
 }
