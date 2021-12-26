@@ -60,7 +60,7 @@ int	find_min_elem_number(t_b_to_a	*info_b_to_a, int stack_b_size)
 			min = (info_b_to_a[i]).min_sum_iters;
 		}
 	}
-	return (find_best_elem(info_b_to_a, stack_b_size, min));
+	return (num);
 }
 
 void	find_min_summary_iterations(t_b_to_a	*elem, int stack_b_size)
