@@ -99,7 +99,6 @@ int	try_sort (t_list **stack_a, t_list **stack_b)
 	while ((str = get_next_line (0)))
 	{
 		parse_command (str, stack_a, stack_b);
-		// print_list1 (*stack_a);
 		free (str);
 		i++;
 	}
@@ -117,7 +116,6 @@ int main(int argc, char *argv[])
 	stack_b = NULL;
 	arr = validation(argc, argv, &arr_len);
 	check_init (&stack_a, arr, arr_len);
-	print_list1 (stack_a);
 	try_sort (&stack_a, &stack_b);
 	check_sort (&stack_a);
 	if (ft_lstsize(stack_a) != arr_len)
@@ -129,7 +127,6 @@ int main(int argc, char *argv[])
 		return (0);
 	}
 	ft_putendl_fd ("OK", 1);
-	print_list1 (stack_a);
 	clear_list (&stack_a);
 	free (arr);
 	return (0);

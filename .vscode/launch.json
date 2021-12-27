@@ -10,7 +10,7 @@
 			"type": "lldb",
 			"request": "launch",
 			"program": "${workspaceFolder}/my_checker",
-			"args": [],
+			"args": ["7 5"],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
 			"environment": [ { "name": "squid", "value": "clam" } ],
