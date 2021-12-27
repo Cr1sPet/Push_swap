@@ -35,7 +35,7 @@ $(NAME):		$(OBJ)
 				@$(MAKE) bonus -C ./libft
 				$(CC) $(OBJ) -I$ {HEADER} ${LIBFT} -o $(NAME)
 
-$(NAME_B):		$(OBJ_B)
+$(NAME_B):		$(OBJ_B) $(NAME)
 				@$(MAKE) all -C ./libft
 				@$(MAKE) bonus -C ./libft
 				$(CC) $(OBJ_B) -I$ {HEADER} ${LIBFT} -o $(NAME_B)

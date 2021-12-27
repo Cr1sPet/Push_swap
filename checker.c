@@ -68,13 +68,15 @@ int	sort(t_list **stack_a, t_list **stack_b)
 
 	i = 0;
 	ok = 1;
-	while ((str = get_next_line (0)))
+	str = get_next_line (0);
+	while (str)
 	{
 		ok = parse_command (str, stack_a, stack_b);
 		free (str);
 		if (!ok)
 			return (0);
 		i++;
+		str = get_next_line (0);
 	}
 	return (1);
 }
