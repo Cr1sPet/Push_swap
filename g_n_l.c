@@ -15,7 +15,10 @@ char *get_next_line(int fd)
 		i++;
 	}
 	buf[i] = '\0';
-    if (!buf[0])
+    if (!buf[0] || buf[0] == '\n')
+	{
+		free (buf);
         return (NULL);
+	}
 	return (buf);
 }

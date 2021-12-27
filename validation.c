@@ -109,10 +109,12 @@ static void	is_valid(int argc, char *argv[], int **input_arr)
 
 int	*validation(int argc, char **argv, int *arr_length)
 {
+	int		i;
 	int		*arr;
 	char	*res;
 	char	**new_argv;
 
+	i = 0;
 	joiner (argc, argv, &res);
 	if (ft_strlen(res) == 1 && res[0] == ' ')
 	{
@@ -120,6 +122,13 @@ int	*validation(int argc, char **argv, int *arr_length)
 		exit (1);
 	}
 	splitter (res, &new_argv);
+	free (res);
 	is_valid(str_duo_len(new_argv, arr_length), new_argv, &arr);
+	while (new_argv[i])
+	{
+		free (new_argv[i]);
+		i++;
+	}
+	free (new_argv);
 	return (arr);
 }

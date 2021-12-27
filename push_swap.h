@@ -63,6 +63,7 @@ void		rotate_stack(t_list **list);
 void		push_stack(t_list **src, t_list **dest);
 void		swap_stack(t_list **list);
 void		print_list(t_list **list);
+void		normalize(t_list **listA, int lst_size);
 void		find_a_elem(t_list **stack_a, t_b_to_a *info_b_to_a, int a_sz);
 void		elem_b_to_a(t_list **list_a, t_list **list_b, t_b_to_a info_b_to_a);
 void		s_swap_stack (t_list **stack_a, t_list **stack_b);

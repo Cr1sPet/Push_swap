@@ -1,1 +1,0 @@
-gcc -g checker.c validation_utils.c validation.c s_commands.c commands.c g_n_l.c libft/*.c -o my_checker

@@ -1,20 +1,5 @@
 #include "push_swap.h"
 
-void	clear_list(t_list **list)
-{
-	t_list	*temp_list;
-
-	if (*list)
-	{
-		while (*list)
-		{
-			temp_list = (*list)->next;
-			free (*list);
-			(*list) = temp_list;
-		}
-	}
-}
-
 void init(t_list **list_a, int *arr, int arr_len)
 {
 	int		i;
@@ -31,15 +16,6 @@ void init(t_list **list_a, int *arr, int arr_len)
 			exit (1);
 		}
 		ft_lstadd_front(list_a, temp_list);
-	}
-}
-
-void print_list1 (t_list *list)
-{
-	while (list)
-	{
-		printf("%d\n", list->content);
-		list = list->next;
 	}
 }
 
