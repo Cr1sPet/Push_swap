@@ -46,9 +46,9 @@ void print_list1 (t_list *list)
 void parse_command (char *str, t_list **stack_a, t_list **stack_b)
 {
 	if (!ft_strncmp("ra", str, ft_strlen (str)))
-			reverse_rotate_stack (stack_a);
+			rotate_stack (stack_a);
 	else if (!ft_strncmp("rb", str, ft_strlen (str)))
-		reverse_rotate_stack (stack_b);
+		rotate_stack (stack_b);
 	else if (!ft_strncmp("pb", str, ft_strlen (str)))
 		push_stack (stack_a, stack_b);
 	else if (!ft_strncmp("pa", str, ft_strlen (str)))
@@ -64,7 +64,7 @@ void parse_command (char *str, t_list **stack_a, t_list **stack_b)
 	else if (!ft_strncmp("ss", str, ft_strlen (str)))
 		s_swap_stack (stack_a, stack_b);
 	else if (!ft_strncmp("rr", str, ft_strlen (str)))
-		s_reverse_stack (stack_a, stack_b);
+		s_rotate_stack (stack_a, stack_b);
 	else if (!ft_strncmp("rrr", str, ft_strlen (str)))
 		s_reverse_rotate_stack (stack_a, stack_b);
 }
@@ -81,8 +81,8 @@ void	check_sort (t_list **stack__a)
 	{
 		if (stack_a->content < temp)
 		{
-			ft_putendl ("KO", 1);
-			clear_list (stack_a)
+			ft_putendl_fd ("KO", 1);
+			clear_list (stack__a);
 			exit (1);
 		}
 		temp = stack_a->content;
@@ -99,6 +99,7 @@ int	try_sort (t_list **stack_a, t_list **stack_b)
 	while ((str = get_next_line (0)))
 	{
 		parse_command (str, stack_a, stack_b);
+		// print_list1 (*stack_a);
 		free (str);
 		i++;
 	}
@@ -116,14 +117,20 @@ int main(int argc, char *argv[])
 	stack_b = NULL;
 	arr = validation(argc, argv, &arr_len);
 	check_init (&stack_a, arr, arr_len);
-	try_sort (&stack_a);
+	print_list1 (stack_a);
+	try_sort (&stack_a, &stack_b);
 	check_sort (&stack_a);
 	if (ft_lstsize(stack_a) != arr_len)
 	{
-		ft_putendl ("KO", 1);
-		clear_list (stack_a)
+		ft_putendl_fd ("KO", 1);
+		clear_list (&stack_a);
+		clear_list (&stack_b);
+		free (arr);
 		return (0);
 	}
+	ft_putendl_fd ("OK", 1);
+	print_list1 (stack_a);
+	clear_list (&stack_a);
 	free (arr);
 	return (0);
 }

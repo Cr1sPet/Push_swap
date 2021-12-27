@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include "libft/libft.h"
-# include "get_next_line/get_next_line.h"
 
 typedef struct s_markup_info
 {
@@ -41,6 +40,8 @@ typedef struct s_b_to_a
 	int	reverse_same_time;
 }	t_b_to_a;
 
+
+char		*get_next_line(int fd);
 int			*validation(int argc, char **argv, int *arr_length);
 int			check_atoi(char *str);
 void		clear_list(t_list **list);
@@ -63,6 +64,9 @@ void		swap_stack(t_list **list);
 void		print_list(t_list **list);
 void		find_a_elem(t_list **stack_a, t_b_to_a *info_b_to_a, int a_sz);
 void		elem_b_to_a(t_list **list_a, t_list **list_b, t_b_to_a info_b_to_a);
+void		s_swap_stack (t_list **stack_a, t_list **stack_b);
+void		s_rotate_stack (t_list **stack_a, t_list **stack_b);
+void		s_reverse_rotate_stack (t_list **stack_a, t_list **stack_b);
 t_b_to_a	find_b_elem(t_list *stack_b, t_list **stack_bb, const int b_sz);
 t_b_to_a	*get_inf_arr(t_list **list_a, t_list **list_b, int a_sz, int b_sz);
 #endif
