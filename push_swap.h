@@ -54,6 +54,7 @@ int			is_positive(int num);
 int			get_min_num(int a, int b);
 int			get_max_num(int a, int b);
 int			get_num_abs(int a);
+int			s_commands (char *str, t_list **stack_a, t_list **stack_b);
 int			find_min_elem_number(t_b_to_a	*info_b_to_a, int stack_b_size);
 void		markup_gt(t_list **list, int lst_sz);
 void		a_to_b(t_list **list, t_list **stack_b);
