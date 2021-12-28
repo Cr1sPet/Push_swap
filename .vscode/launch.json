@@ -9,7 +9,7 @@
 			"name": "(lldb) Запустить",
 			"type": "lldb",
 			"request": "launch",
-			"program": "${workspaceFolder}/my_checker",
+			"program": "${workspaceFolder}/checker",
 			"args": ["7 5"],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
@@ -21,7 +21,7 @@
 			"name": "(lldb) Подключить",
 			"type": "lldb",
 			"request": "attach",
-			"program": "${workspaceFolder}/my_checker",
+			"program": "${workspaceFolder}/checker",
 			"processId": "${command:pickProcess}",
 			"MIMode": "lldb"
 		}

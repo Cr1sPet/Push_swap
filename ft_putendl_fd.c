@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/15 15:14:35 by jchopped          #+#    #+#             */
-/*   Updated: 2021/12/11 17:19:25 by jchopped         ###   ########.fr       */
+/*   Created: 2021/10/13 19:26:04 by jchopped          #+#    #+#             */
+/*   Updated: 2021/12/28 12:35:34 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
-{
-	unsigned int	i;
+#include "push_swap.h"
 
-	if (!s)
-		return ;
-	i = 0;
-	while (s[i])
-	{
-		f(i, s);
-		i++;
-	}
+void	ft_putendl_fd(char *s, int fd)
+{
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
 }

@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/17 10:29:11 by jchopped          #+#    #+#             */
-/*   Updated: 2021/10/17 13:15:11 by jchopped         ###   ########.fr       */
+/*   Created: 2021/10/16 13:52:20 by jchopped          #+#    #+#             */
+/*   Updated: 2021/12/28 12:24:32 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(int))
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*temp;
-
-	if (!del || !lst)
-		return ;
-	while (*lst)
+	if (lst)
 	{
-		temp = (*lst)->next;
-		ft_lstdelone((*lst), del);
-		(*lst) = temp;
-	}	
+		if (*lst)
+			new->next = (*lst);
+		*lst = new;
+	}
 }

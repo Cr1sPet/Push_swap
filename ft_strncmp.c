@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/15 15:25:06 by jchopped          #+#    #+#             */
-/*   Updated: 2021/10/15 15:27:42 by jchopped         ###   ########.fr       */
+/*   Created: 2021/12/28 13:21:19 by jchopped          #+#    #+#             */
+/*   Updated: 2021/12/28 13:22:22 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {
-	size_t	i;
-	size_t	j;
+	size_t				i;
+	const unsigned char	*u_str1;
+	const unsigned char	*u_str2;
 
+	u_str1 = (const unsigned char *) str1;
+	u_str2 = (unsigned const char *) str2;
 	i = 0;
-	if (little && 0 == little[0])
-		return ((char *)big);
-	while (big[i] && i < len)
+	while ((*u_str1 || *u_str2) && i < n)
 	{
-		if (big[i] == little[0])
+		if (*u_str1 != *u_str2)
 		{
-			j = 0;
-			while (big[i + j] == little[j] && (i + j) < len
-				&& big[i + j] && little[j])
-				j++;
-			if (j == ft_strlen(little))
-				return ((char *)(big + i));
+			if (*u_str1 > *u_str2)
+				return (1);
+			else if (*u_str1 < *u_str2)
+				return (-1);
 		}
+		u_str1++;
+		u_str2++;
 		i++;
 	}
-	return ((void *) 0);
+	return (0);
 }

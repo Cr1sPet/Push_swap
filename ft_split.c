@@ -6,11 +6,11 @@
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 15:11:01 by jchopped          #+#    #+#             */
-/*   Updated: 2021/12/11 17:18:54 by jchopped         ###   ########.fr       */
+/*   Updated: 2021/12/28 12:24:15 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 static size_t	count_words(char const *str, char c)
 {

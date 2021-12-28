@@ -3,17 +3,19 @@ NAME_B			=	checker
 
 SRCS			=	main.c b_to_a.c validation.c validation_utils.c markup.c\
 					move_b_to_a.c a_to_b.c initialisation.c commands.c\
-					b_to_a_utils.c utils.c
-
+					b_to_a_utils.c utils.c ft_lstadd_back.c ft_lstadd_front.c\
+					ft_lstnew.c ft_lstsize.c ft_split.c ft_strjoin.c ft_strlen.c\
+					ft_strncmp.c ft_strdup.c ft_isdigit.c ft_atoi.c ft_putendl_fd.c\
+					ft_lstlast.c ft_putchar_fd.c ft_putstr_fd.c
 SRCS_B			=	checker.c validation_utils.c validation.c\
-					s_commands.c commands.c g_n_l.c utils.c
+					s_commands.c commands.c g_n_l.c utils.c ft_lstadd_back.c ft_lstadd_front.c\
+					ft_lstnew.c ft_lstsize.c ft_split.c ft_strjoin.c ft_strlen.c\
+					ft_strncmp.c ft_strdup.c ft_isdigit.c ft_atoi.c ft_putendl_fd.c\
+					ft_lstlast.c ft_putchar_fd.c ft_putstr_fd.c
 
 HEADER			= push_swap.h
 
 LIBFT			= ./libft/libft.a
-
-GNL = get_next_line.c get_next_line_utils.c
-
 
 OBJ				= $(SRCS:.c=.o)
 
@@ -23,35 +25,30 @@ CC				= gcc
 
 RM				= @rm -f
 
-FLAGS			= -Wall -Wextra -Werror
+FLAGS			= -Wall -Wextra -Werror -I${HEADER}
 
 .PHONY:			all clean fclean re bonus
 
 all:			$(NAME)
 bonus:			$(NAME_B)
 
-$(NAME):		$(OBJ)
-				@$(MAKE) all -C ./libft
-				@$(MAKE) bonus -C ./libft
-				$(CC) $(OBJ) -I$ {HEADER} ${LIBFT} -o $(NAME)
+$(NAME):		$(OBJ) $(OBJ_B) $(HEADER)
+				$(CC) -o $(NAME) $(OBJ)
+				$(CC) $(OBJ_B)  -o $(NAME_B) 
 
-$(NAME_B):		$(OBJ_B) $(NAME)
-				@$(MAKE) all -C ./libft
-				@$(MAKE) bonus -C ./libft
-				$(CC) $(OBJ_B) -I$ {HEADER} ${LIBFT} -o $(NAME_B)
+$(NAME_B):		$(OBJ_B) ${NAME}
+				$(CC) $(OBJ_B)  -o $(NAME_B)
 
 %.o:			%.c $(HEADER)
-				$(CC) -g $(FLAGS) -I$ {HEADER} -c $< -o $@
+				$(CC)  $(FLAGS) -c $< -o $@
 
 bonus:			
 				
 
-clean:			
-				@$(MAKE) clean -C ./libft
-				$(RM) $(OBJ) $(OBJ_B)
+clean	:	
+	@rm -f $(OBJ) $(OBJ_B)
 
-fclean:			clean
-				@$(MAKE) fclean -C ./libft
-				$(RM) $(NAME) $(NAME_B)
+fclean	:	clean
+	@rm -f $(NAME) $(NAME_B)
+re		: fclean all
 
-re:				fclean $(NAME) $(NAME_B)

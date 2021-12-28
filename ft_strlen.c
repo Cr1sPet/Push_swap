@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/15 15:28:02 by jchopped          #+#    #+#             */
-/*   Updated: 2021/10/15 15:29:03 by jchopped         ###   ########.fr       */
+/*   Created: 2021/10/15 14:53:20 by jchopped          #+#    #+#             */
+/*   Updated: 2021/12/28 12:24:25 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-char	*ft_strrchr(const char *str, int ch)
+size_t	ft_strlen(const char *str)
 {
-	int	len;
+	size_t	l;
 
-	len = ft_strlen(str);
-	while (len >= 0)
+	l = 0;
+	while (str[l] != '\0')
 	{
-		if (str[len] == (char)ch)
-			return ((char *)(str + len));
-		len--;
+		l++;
 	}
-	return ((void *)0);
+	return (l);
 }

@@ -6,7 +6,7 @@
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 15:03:42 by jchopped          #+#    #+#             */
-/*   Updated: 2021/12/26 15:04:37 by jchopped         ###   ########.fr       */
+/*   Updated: 2021/12/28 13:20:00 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	check_atoi(char *str)
 	while (str[i])
 	{
 		if ('-' == str[i] && i != 0)
-				return (0);
+			return (0);
 		if (!ft_isdigit(str[i]) && str[i] != '-')
 			return (0);
 		i++;

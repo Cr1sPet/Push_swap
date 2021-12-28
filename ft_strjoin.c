@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/15 15:20:22 by jchopped          #+#    #+#             */
-/*   Updated: 2021/10/16 16:20:34 by jchopped         ###   ########.fr       */
+/*   Created: 2021/10/15 15:15:19 by jchopped          #+#    #+#             */
+/*   Updated: 2021/12/28 12:24:22 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
+	char	*new_s;
+	size_t	size;
 	size_t	i;
 	size_t	j;
-	size_t	dst_len;
 
+	if (!(s1 && s2))
+		return ((void *) 0);
+	size = sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1);
+	new_s = (char *) malloc(size);
+	if ((void *)0 == new_s)
+		return ((void *)0);
+	i = 0;
 	j = 0;
-	i = ft_strlen(dst);
-	dst_len = i;
-	if (size <= dst_len)
-		return (size + ft_strlen(src));
-	while (src[j] && i < size - 1)
-	{
-		dst[i] = src[j];
-		i++;
-		j++;
-	}
-	dst[i] = 0;
-	return (dst_len + ft_strlen(src));
+	while (s1[i])
+		new_s[j++] = s1[i++];
+	i = 0;
+	while (s2[i])
+		new_s[j++] = s2[i++];
+	new_s[j] = 0;
+	return (new_s);
 }

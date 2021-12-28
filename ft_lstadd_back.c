@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/13 19:06:26 by jchopped          #+#    #+#             */
-/*   Updated: 2021/10/16 19:23:35 by jchopped         ###   ########.fr       */
+/*   Created: 2021/10/16 15:13:49 by jchopped          #+#    #+#             */
+/*   Updated: 2021/12/28 12:24:29 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int ch)
+#include "push_swap.h"
+
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (ch >= 0 && ch <= 127)
-		return (1);
-	return (0);
+	t_list	*tmp;
+
+	if (lst)
+	{
+		if (*lst)
+		{
+			tmp = ft_lstlast(*lst);
+			tmp->next = new;
+		}
+		else
+		{
+			*lst = new;
+		}
+	}
 }

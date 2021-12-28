@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/16 15:13:49 by jchopped          #+#    #+#             */
-/*   Updated: 2021/10/18 16:28:37 by jchopped         ###   ########.fr       */
+/*   Created: 2021/10/16 13:44:28 by jchopped          #+#    #+#             */
+/*   Updated: 2021/12/28 12:24:35 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+t_list	*ft_lstnew(int content, int index, int keep_a)
 {
-	t_list	*tmp;
+	t_list	*new_list;
 
-	if (lst)
-	{
-		if (*lst)
-		{
-			tmp = ft_lstlast(*lst);
-			tmp->next = new;
-		}
-		else
-		{
-			*lst = new;
-		}
-	}
+	new_list = (t_list *)malloc(sizeof(t_list));
+	if ((void *)0 == new_list)
+		return ((void *)0);
+	new_list->content = content;
+	new_list->index = index;
+	new_list->keep_a = keep_a;
+	new_list->next = (void *)0;
+	return (new_list);
 }

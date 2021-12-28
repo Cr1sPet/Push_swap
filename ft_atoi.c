@@ -6,11 +6,11 @@
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 18:57:41 by jchopped          #+#    #+#             */
-/*   Updated: 2021/10/15 14:42:08 by jchopped         ###   ########.fr       */
+/*   Updated: 2021/12/28 12:36:23 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 int	ft_atoi(const char *str)
 {
