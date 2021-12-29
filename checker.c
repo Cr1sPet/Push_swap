@@ -21,21 +21,21 @@ void init(t_list **list_a, int *arr, int arr_len)
 
 int	parse_command(char *str, t_list **stack_a, t_list **stack_b)
 {
-	if (!ft_strncmp("ra", str, ft_strlen (str)))
+	if (!str_cmp("ra\n", str))
 		rotate_stack (stack_a);
-	else if (!ft_strncmp("rb", str, ft_strlen (str)))
+	else if (!str_cmp("rb\n", str))
 		rotate_stack (stack_b);
-	else if (!ft_strncmp("pb", str, ft_strlen (str)))
+	else if (!str_cmp("pb\n", str))
 		push_stack (stack_a, stack_b);
-	else if (!ft_strncmp("pa", str, ft_strlen (str)))
+	else if (!str_cmp("pa\n", str))
 		push_stack (stack_b, stack_a);
-	else if (!ft_strncmp("rra", str, ft_strlen (str)))
+	else if (!str_cmp("rra\n", str))
 		reverse_rotate_stack (stack_a);
-	else if (!ft_strncmp("rrb", str, ft_strlen (str)))
+	else if (!str_cmp("rrb\n", str))
 		reverse_rotate_stack (stack_b);
-	else if (!ft_strncmp("sa", str, ft_strlen (str)))
+	else if (!str_cmp("sa\n", str))
 		swap_stack (stack_a);
-	else if (!ft_strncmp("sb", str, ft_strlen (str)))
+	else if (!str_cmp("sb\n", str))
 		swap_stack (stack_b);
 	else if (!s_commands (str, stack_a, stack_b))
 		return (0);

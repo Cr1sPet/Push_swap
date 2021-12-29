@@ -5,13 +5,13 @@ SRCS			=	main.c b_to_a.c validation.c validation_utils.c markup.c\
 					move_b_to_a.c a_to_b.c initialisation.c commands.c\
 					b_to_a_utils.c utils.c ft_lstadd_back.c ft_lstadd_front.c\
 					ft_lstnew.c ft_lstsize.c ft_split.c ft_strjoin.c ft_strlen.c\
-					ft_strncmp.c ft_strdup.c ft_isdigit.c ft_atoi.c ft_putendl_fd.c\
+					ft_strdup.c ft_isdigit.c ft_atoi.c ft_putendl_fd.c\
 					ft_lstlast.c ft_putchar_fd.c ft_putstr_fd.c
 SRCS_B			=	checker.c validation_utils.c validation.c\
-					s_commands.c commands.c g_n_l.c utils.c ft_lstadd_back.c ft_lstadd_front.c\
+					s_commands.c commands.c utils.c ft_lstadd_back.c ft_lstadd_front.c\
 					ft_lstnew.c ft_lstsize.c ft_split.c ft_strjoin.c ft_strlen.c\
-					ft_strncmp.c ft_strdup.c ft_isdigit.c ft_atoi.c ft_putendl_fd.c\
-					ft_lstlast.c ft_putchar_fd.c ft_putstr_fd.c
+					ft_strdup.c ft_isdigit.c ft_atoi.c ft_putendl_fd.c\
+					ft_lstlast.c ft_putchar_fd.c ft_putstr_fd.c get_next_line/get_next_line.c ft_strchr.c
 
 HEADER			= push_swap.h
 
@@ -40,7 +40,7 @@ $(NAME_B):		$(OBJ_B) ${NAME}
 				$(CC) $(OBJ_B)  -o $(NAME_B)
 
 %.o:			%.c $(HEADER)
-				$(CC)  $(FLAGS) -c $< -o $@
+				$(CC) -g $(FLAGS) -c $< -o $@
 
 bonus:			
 				

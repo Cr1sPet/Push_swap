@@ -6,7 +6,7 @@
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 15:03:46 by jchopped          #+#    #+#             */
-/*   Updated: 2021/12/28 13:10:19 by jchopped         ###   ########.fr       */
+/*   Updated: 2021/12/29 12:55:24 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ typedef struct s_b_to_a
 	int	reverse_same_time;
 }	t_b_to_a;
 
+int			str_cmp(char *s1, char *s2);
+char		*ft_strchr(const char *str, int ch);
 t_list		*ft_lstlast(t_list *lst);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putchar_fd(char c, int fd);
@@ -65,7 +67,6 @@ int			ft_lstsize(t_list *lst);
 char		**ft_split(char const *s, char c);
 char		*ft_strjoin(char const *s1, char const *s2);
 size_t		ft_strlen(const char *str);
-int			ft_strncmp(const char *str1, const char *str2, size_t n);
 char		*get_next_line(int fd);
 int			*validation(int argc, char **argv, int *arr_length);
 int			check_atoi(char *str);
