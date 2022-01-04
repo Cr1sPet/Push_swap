@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/26 15:03:23 by jchopped          #+#    #+#             */
-/*   Updated: 2021/12/26 15:34:08 by jchopped         ###   ########.fr       */
+/*   Created: 2021/10/16 13:52:20 by jchopped          #+#    #+#             */
+/*   Updated: 2021/12/28 12:24:32 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+void	ft_lstadd_front(t_stack **lst, t_stack *new)
 {
-	int		arr_length;
-	int		*arr;
-	t_list	*list_a;
-	t_list	*list_b;
-
-	list_a = NULL;
-	list_b = NULL;
-	arr = validation(argc, argv, &arr_length);
-	initialisation(arr, &list_a, arr_length);
-	a_to_b(&list_a, &list_b);
-	b_to_a(&list_a, &list_b);
-	normalize (&list_a, ft_lstsize(list_a));
-	free (arr);
-	clear_list (&list_a);
-	return (0);
+	if (lst)
+	{
+		if (*lst)
+			new->next = (*lst);
+		*lst = new;
+	}
 }

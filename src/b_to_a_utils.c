@@ -69,10 +69,10 @@ void	find_min_summary_iterations(t_b_to_a	*elem)
 	}
 }
 
-t_b_to_a	*get_inf_arr(t_list **list_a, t_list **list_b, int a_sz, int b_sz)
+t_b_to_a	*get_inf_arr(t_stack **list_a, t_stack **list_b, int a_sz, int b_sz)
 {
 	int				i;
-	t_list			*stack_b;
+	t_stack			*stack_b;
 	t_b_to_a		*info_b_to_a;
 
 	i = 0;

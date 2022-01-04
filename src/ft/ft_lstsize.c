@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/16 13:44:28 by jchopped          #+#    #+#             */
-/*   Updated: 2021/12/28 12:24:35 by jchopped         ###   ########.fr       */
+/*   Created: 2021/10/16 13:56:39 by jchopped          #+#    #+#             */
+/*   Updated: 2021/12/28 12:24:38 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew(int content, int index, int keep_a)
+int	ft_lstsize(t_stack *lst)
 {
-	t_list	*new_list;
+	int	i;
 
-	new_list = (t_list *)malloc(sizeof(t_list));
-	if ((void *)0 == new_list)
-		return ((void *)0);
-	new_list->content = content;
-	new_list->index = index;
-	new_list->keep_a = keep_a;
-	new_list->next = (void *)0;
-	return (new_list);
+	i = 0;
+	while (lst)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
 }

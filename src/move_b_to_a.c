@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	go_rotate_stack(t_list **stack, int sign)
+void	go_rotate_stack(t_stack **stack, int sign)
 {
 	if (1 == sign)
 		rotate_stack(stack);
@@ -36,7 +36,7 @@ void	print_command(int sign, char correct)
 	}
 }
 
-void	prepare_diff_time(t_list **stack_a, t_list **stack_b,
+void	prepare_diff_time(t_stack **stack_a, t_stack **stack_b,
 	t_b_to_a elem_info_a_to_b)
 {
 	int	i;
@@ -57,8 +57,8 @@ void	prepare_diff_time(t_list **stack_a, t_list **stack_b,
 	}
 }
 
-void	prepare_same_time(t_list **stack_a,
-	t_list **stack_b, t_b_to_a elem_info_a_to_b)
+void	prepare_same_time(t_stack **stack_a,
+	t_stack **stack_b, t_b_to_a elem_info_a_to_b)
 {
 	int	i;
 
@@ -84,7 +84,7 @@ void	prepare_same_time(t_list **stack_a,
 	}
 }
 
-void	elem_b_to_a(t_list **stack_a, t_list **stack_b, t_b_to_a info_b_to_a)
+void	elem_b_to_a(t_stack **stack_a, t_stack **stack_b, t_b_to_a info_b_to_a)
 {
 	if (info_b_to_a.reverse_same_time)
 		prepare_same_time (stack_a, stack_b, info_b_to_a);

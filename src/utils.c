@@ -1,8 +1,8 @@
 #include "push_swap.h"
 
-void	clear_list(t_list **list)
+void	clear_list(t_stack **list)
 {
-	t_list	*temp_list;
+	t_stack	*temp_list;
 
 	if (*list)
 	{
@@ -15,7 +15,7 @@ void	clear_list(t_list **list)
 	}
 }
 
-static int	find_head(t_list *cpylistA)
+static int	find_head(t_stack *cpylistA)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ static int	find_head(t_list *cpylistA)
 	return (i);
 }
 
-void	normalize(t_list **listA, int lst_size)
+void	normalize(t_stack **listA, int lst_size)
 {
 	int	i;
 	int	num;

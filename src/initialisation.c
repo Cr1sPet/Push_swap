@@ -36,7 +36,7 @@ static void	sort_arr(int *arr, int arr_length)
 	}
 }
 
-static void	list_indexing(t_list *list_a, int *arr, int arr_len)
+static void	list_indexing(t_stack *list_a, int *arr, int arr_len)
 {
 	int		i;
 	int		ok;
@@ -58,11 +58,11 @@ static void	list_indexing(t_list *list_a, int *arr, int arr_len)
 	}
 }
 
-int	initialisation(int *arr, t_list **list_a, int arr_len)
+int	initialisation(int *arr, t_stack **list_a, int arr_len)
 {
 	int		i;
 	int		a_sz;
-	t_list	*temp_list;
+	t_stack	*temp_list;
 
 	i = arr_len - 1;
 	while (i >= 0)

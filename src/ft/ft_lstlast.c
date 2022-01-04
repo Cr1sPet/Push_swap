@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/16 15:13:49 by jchopped          #+#    #+#             */
-/*   Updated: 2021/12/28 12:24:29 by jchopped         ###   ########.fr       */
+/*   Created: 2021/10/16 14:00:40 by jchopped          #+#    #+#             */
+/*   Updated: 2021/12/28 12:37:21 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+t_stack	*ft_lstlast(t_stack *lst)
 {
-	t_list	*tmp;
-
-	if (lst)
+	if ((void *)0 == lst)
+		return ((void *)0);
+	while (lst)
 	{
-		if (*lst)
-		{
-			tmp = ft_lstlast(*lst);
-			tmp->next = new;
-		}
-		else
-		{
-			*lst = new;
-		}
+		if (!(lst->next))
+			return (lst);
+		lst = lst->next;
 	}
+	return (lst);
 }

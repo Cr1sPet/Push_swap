@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-int	false_counter(t_list **list)
+int	false_counter(t_stack **list)
 {
 	int		counter;
-	t_list	*stack_a;
+	t_stack	*stack_a;
 
 	counter = 0;
 	stack_a = *list;
@@ -28,7 +28,7 @@ int	false_counter(t_list **list)
 	return (counter);
 }
 
-int	check_swap_need(t_list **list, int false_count_before, int a_sz)
+int	check_swap_need(t_stack **list, int false_count_before, int a_sz)
 {
 	int		ok;
 
@@ -43,7 +43,7 @@ int	check_swap_need(t_list **list, int false_count_before, int a_sz)
 	return (ok);
 }
 
-void	a_to_b(t_list **list, t_list **stack_b)
+void	a_to_b(t_stack **list, t_stack **stack_b)
 {
 	int		false_count;
 	int		a_sz;

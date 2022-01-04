@@ -1,19 +1,23 @@
 NAME			=	push_swap
 NAME_B			=	checker
 
-SRCS			=	main.c b_to_a.c validation.c validation_utils.c markup.c\
+SRCS_FILES		=	main.c b_to_a.c validation.c validation_utils.c markup.c\
 					move_b_to_a.c a_to_b.c initialisation.c commands.c\
-					b_to_a_utils.c utils.c ft_lstadd_back.c ft_lstadd_front.c\
-					ft_lstnew.c ft_lstsize.c ft_split.c ft_strjoin.c ft_strlen.c\
-					ft_strdup.c ft_isdigit.c ft_atoi.c ft_putendl_fd.c\
-					ft_lstlast.c ft_putchar_fd.c ft_putstr_fd.c
-SRCS_B			=	checker.c validation_utils.c validation.c\
-					s_commands.c commands.c utils.c ft_lstadd_back.c ft_lstadd_front.c\
-					ft_lstnew.c ft_lstsize.c ft_split.c ft_strjoin.c ft_strlen.c\
-					ft_strdup.c ft_isdigit.c ft_atoi.c ft_putendl_fd.c\
-					ft_lstlast.c ft_putchar_fd.c ft_putstr_fd.c get_next_line/get_next_line.c ft_strchr.c
+					b_to_a_utils.c utils.c ./ft/ft_lstadd_back.c ./ft/ft_lstadd_front.c\
+					./ft/ft_lstnew.c ./ft/ft_lstsize.c ./ft/ft_split.c ./ft/ft_strjoin.c ./ft/ft_strlen.c\
+					./ft/ft_strdup.c ./ft/ft_isdigit.c ./ft/ft_atoi.c ./ft/ft_putendl_fd.c\
+					./ft/ft_lstlast.c ./ft/ft_putchar_fd.c ./ft/ft_putstr_fd.c
+SRCS_FILES_B	=	checker.c validation_utils.c validation.c\
+					s_commands.c commands.c utils.c ./ft/ft_lstadd_back.c ./ft/ft_lstadd_front.c\
+					./ft/ft_lstnew.c ./ft/ft_lstsize.c ./ft/ft_split.c ./ft/ft_strjoin.c ./ft/ft_strlen.c\
+					./ft/ft_strdup.c ./ft/ft_isdigit.c ./ft/ft_atoi.c ./ft/ft_putendl_fd.c\
+					./ft/ft_lstlast.c ./ft/ft_putchar_fd.c ./ft/ft_putstr_fd.c get_next_line/get_next_line.c\
+					./ft/ft_strchr.c
 
-HEADER			= push_swap.h
+SRCS				=	$(addprefix ./src/, $(SRCS_FILES))
+SRCS_B				=	$(addprefix ./src/, $(SRCS_FILES_B))
+
+HEADER			= ./includes/
 
 LIBFT			= ./libft/libft.a
 

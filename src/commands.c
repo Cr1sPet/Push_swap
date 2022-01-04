@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-void	swap_stack(t_list **list)
+void	swap_stack(t_stack **list)
 {
-	t_list	*stack_a;
-	t_list	*temp_list;
+	t_stack	*stack_a;
+	t_stack	*temp_list;
 
 	stack_a = (*list)->next;
 	temp_list = stack_a->next;
@@ -24,9 +24,9 @@ void	swap_stack(t_list **list)
 	(*list) = stack_a;
 }
 
-void	push_stack(t_list **stack_a, t_list **stack_b)
+void	push_stack(t_stack **stack_a, t_stack **stack_b)
 {
-	t_list	*temp_list;
+	t_stack	*temp_list;
 
 	temp_list = (*stack_a)->next;
 	(*stack_a)->next = NULL;
@@ -34,9 +34,9 @@ void	push_stack(t_list **stack_a, t_list **stack_b)
 	(*stack_a) = temp_list;
 }
 
-void	rotate_stack(t_list **list)
+void	rotate_stack(t_stack **list)
 {
-	t_list	*temp_list;
+	t_stack	*temp_list;
 
 	temp_list = (*list);
 	(*list) = temp_list->next;
@@ -44,12 +44,12 @@ void	rotate_stack(t_list **list)
 	ft_lstadd_back(list, temp_list);
 }
 
-void	reverse_rotate_stack(t_list **list)
+void	reverse_rotate_stack(t_stack **list)
 {
 	int		i;
 	int		lst_size;
-	t_list	*la_list;
-	t_list	*pre_last;
+	t_stack	*la_list;
+	t_stack	*pre_last;
 
 	i = 0;
 	la_list = *list;

@@ -46,10 +46,10 @@ void	set_iterations_b(t_b_to_a *info_b_to_a, int stack_b_size)
 	}
 }
 
-t_b_to_a	find_b_elem(t_list *stack_b, t_list **stack_bb, const int b_sz)
+t_b_to_a	find_b_elem(t_stack *stack_b, t_stack **stack_bb, const int b_sz)
 {
 	int				i;
-	t_list			*temp_stack_b;
+	t_stack			*temp_stack_b;
 	t_b_to_a		info_b_to_a;
 
 	i = 0;
@@ -65,12 +65,12 @@ t_b_to_a	find_b_elem(t_list *stack_b, t_list **stack_bb, const int b_sz)
 	return (info_b_to_a);
 }
 
-void	find_a_elem(t_list **stack_a, t_b_to_a *info_b_to_a, int stack_a_size)
+void	find_a_elem(t_stack **stack_a, t_b_to_a *info_b_to_a, int stack_a_size)
 {
 	int		i;
 	int		min;
 	int		temp;
-	t_list	*temp_stack_a;
+	t_stack	*temp_stack_a;
 
 	i = 0;
 	min = 2147483647;
@@ -90,7 +90,7 @@ void	find_a_elem(t_list **stack_a, t_b_to_a *info_b_to_a, int stack_a_size)
 	set_iterations_a (info_b_to_a, stack_a_size);
 }
 
-int	b_to_a(t_list **stack_a, t_list **stack_b)
+int	b_to_a(t_stack **stack_a, t_stack **stack_b)
 {
 	int				elem_numb;
 	int				a_sz;
