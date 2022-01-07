@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	check_individuality(int **arr, int argc)
+static void	check_individuality(int **arr, int argc, char **argv)
 {
 	int	i;
 	int	j;
@@ -30,6 +30,7 @@ static void	check_individuality(int **arr, int argc)
 				counter++;
 		if (1 != counter)
 		{
+			clear_arr(argv);
 			free (new_arr);
 			write_bad_message();
 		}
@@ -40,48 +41,38 @@ static void	check_individuality(int **arr, int argc)
 static void	joiner(int argc, char *argv[], char **res)
 {
 	int		i;
-	char	*temp;
 
 	i = 1;
-	*res = ft_strdup (" ");
+	*res = ft_strdup ("");
 	if (NULL == *res)
-		exit (1);
+		exit (EXIT_FAILURE);
 	while (i < argc)
 	{
 		pre_valid(argv[i], res);
-		temp = *res;
-		*res = ft_strjoin (temp, " ");
-		free (temp);
-		temp = *res;
-		*res = ft_strjoin(temp, argv[i]);
+		*res = ft_strjoin (*res, " ");
 		if (NULL == *res)
 		{
-			free (temp);
-			exit(1);
-		}	
-		free (temp);
+			free (*res);
+			exit(EXIT_FAILURE);
+		}
+		*res = ft_strjoin(*res, argv[i]);
+		if (NULL == *res)
+		{
+			free (*res);
+			exit(EXIT_FAILURE);
+		}
 		i++;
 	}
 }
 
-static int	splitter(char *str, char ***argv)
+static void	splitter(char *str, char ***argv)
 {
-	int	i;
-	int	ok;
-	int	str_len;
-
-	i = 0;
-	ok = 0;
-	str_len = ft_strlen(str);
-	while (i < str_len)
-		if (ft_isdigit(str[i++]))
-			ok = 1;
-	if (!ok)
-		return (0);
 	*argv = ft_split(str, ' ');
 	if (NULL == *argv)
-		exit (1);
-	return (ok);
+	{
+		free(str);
+		exit(EXIT_FAILURE);
+	}
 }
 
 static void	is_valid(int argc, char *argv[], int **input_arr)
@@ -92,29 +83,33 @@ static void	is_valid(int argc, char *argv[], int **input_arr)
 	i = 0;
 	arr = (int *)malloc(sizeof(int) * (argc));
 	if (NULL == arr)
-		exit (1);
+	{
+		clear_arr(argv);
+		exit (EXIT_FAILURE);
+	}
 	while (i < argc)
 	{
 		if (!check_atoi(argv[i]))
 		{
 			free(arr);
+			clear_arr(argv);
 			write_bad_message();
 		}
 		arr[i] = ft_atoi(argv[i]);
 		i++;
 	}
-	check_individuality(&arr, argc);
+	check_individuality(&arr, argc, argv);
 	*input_arr = arr;
 }
 
 int	*validation(int argc, char **argv, int *arr_length)
 {
-	int		i;
 	int		*arr;
 	char	*res;
 	char	**new_argv;
 
-	i = 0;
+	if (argc < 3)
+		exit(EXIT_SUCCESS);
 	joiner (argc, argv, &res);
 	if (ft_strlen(res) == 1 && res[0] == ' ')
 	{
@@ -124,11 +119,6 @@ int	*validation(int argc, char **argv, int *arr_length)
 	splitter (res, &new_argv);
 	free (res);
 	is_valid(str_duo_len(new_argv, arr_length), new_argv, &arr);
-	while (new_argv[i])
-	{
-		free (new_argv[i]);
-		i++;
-	}
-	free (new_argv);
+	clear_arr(new_argv);
 	return (arr);
 }

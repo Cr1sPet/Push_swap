@@ -51,6 +51,7 @@ typedef struct s_b_to_a
 	int	reverse_same_time;
 }	t_b_to_a;
 
+void		clear_arr(char **str);
 int			str_cmp(char *s1, char *s2);
 char		*ft_strchr(const char *str, int ch);
 t_stack		*ft_lstlast(t_stack *lst);
@@ -65,7 +66,7 @@ void		ft_lstadd_front(t_stack **lst, t_stack *new);
 t_stack		*ft_lstnew(int content, int index, int keep_a);
 int			ft_lstsize(t_stack *lst);
 char		**ft_split(char const *s, char c);
-char		*ft_strjoin(char const *s1, char const *s2);
+char		*ft_strjoin(char *s1, char const *s2);
 size_t		ft_strlen(const char *str);
 char		*get_next_line(int fd);
 int			*validation(int argc, char **argv, int *arr_length);
@@ -74,8 +75,8 @@ void		clear_list(t_stack **list);
 void		pre_valid(char *str, char **res);
 int			str_duo_len(char **arr, int *arr_length);
 int			write_bad_message(void);
-int			initialisation(int *arr, t_stack **list, int arr_length);
-int			b_to_a(t_stack **stack_a, t_stack **stack_b);
+void		initialisation(int *arr, t_stack **list, int arr_length);
+void		b_to_a(t_stack **stack_a, t_stack **stack_b);
 int			is_positive(int num);
 int			get_min_num(int a, int b);
 int			get_max_num(int a, int b);

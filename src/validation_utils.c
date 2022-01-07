@@ -63,7 +63,7 @@ void	pre_valid(char *str, char **res)
 	}
 	if (!ok || !str[0])
 	{
-		free (*res);
+			free (*res);
 		write_bad_message();
 	}
 }

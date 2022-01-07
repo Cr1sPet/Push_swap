@@ -59,7 +59,6 @@ char	*str_proc(char **in_str)
 void	read_buff(int fd, char **str, char *buf)
 {
 	int		ret;
-	char	*temp;
 
 	ret = read(fd, buf, BUFFER_SIZE);
 	while (ret > 0)
@@ -69,9 +68,7 @@ void	read_buff(int fd, char **str, char *buf)
 			*str = ft_strdup("");
 		}
 		buf[ret] = 0;
-		temp = *str;
 		*str = ft_strjoin(*str, buf);
-		free(temp);
 		if (!ft_strchr(*str, '\n'))
 			ret = read(fd, buf, BUFFER_SIZE);
 		else

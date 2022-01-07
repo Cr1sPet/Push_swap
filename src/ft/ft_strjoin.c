@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char const *s2)
 {
 	char	*new_s;
 	size_t	size;
@@ -33,5 +33,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	while (s2[i])
 		new_s[j++] = s2[i++];
 	new_s[j] = 0;
+	free (s1);
 	return (new_s);
 }

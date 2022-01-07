@@ -9,8 +9,8 @@
 			"name": "(lldb) Запустить",
 			"type": "lldb",
 			"request": "launch",
-			"program": "${workspaceFolder}/checker",
-			"args": ["7 5 56 -90 44 1 -23 90"],
+			"program": "${workspaceFolder}/push_swap",
+			"args": [],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
 			"environment": [ { "name": "squid", "value": "clam" } ],
@@ -21,7 +21,7 @@
 			"name": "(lldb) Подключить",
 			"type": "lldb",
 			"request": "attach",
-			"program": "${workspaceFolder}/checker",
+			"program": "${workspaceFolder}/push_swap",
 			"processId": "${command:pickProcess}",
 			"MIMode": "lldb"
 		}

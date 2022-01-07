@@ -58,7 +58,7 @@ static void	list_indexing(t_stack *list_a, int *arr, int arr_len)
 	}
 }
 
-int	initialisation(int *arr, t_stack **list_a, int arr_len)
+void	initialisation(int *arr, t_stack **list_a, int arr_len)
 {
 	int		i;
 	int		a_sz;
@@ -71,13 +71,12 @@ int	initialisation(int *arr, t_stack **list_a, int arr_len)
 		if (NULL == temp_list)
 		{
 			clear_list (list_a);
-			exit (1);
+			exit (EXIT_FAILURE);
 		}
 		ft_lstadd_front(list_a, temp_list);
 	}
 	sort_arr(arr, arr_len);
 	list_indexing(*list_a, arr, arr_len);
 	a_sz = ft_lstsize (*list_a);
-	markup_gt(list_a, a_sz);
-	return (1);
+	markup_gt(list_a, a_sz);	
 }

@@ -49,23 +49,23 @@ int	find_min_elem_number(t_b_to_a	*info_b_to_a, int stack_b_size)
 	return (num);
 }
 
-void	find_min_summary_iterations(t_b_to_a	*elem)
+void	find_min_sum_iters(t_b_to_a	*elem)
 {
-	(elem[0]).min_iterations
-		= get_min_num ((elem[0]).iters_a,
-			(elem[0]).iters_b);
-	if (((elem[0]).sign_a == (elem[0]).sign_b)
-		&& (elem[0]).sign_b)
+	elem->min_iterations
+		= get_min_num (elem->iters_a,
+			elem->iters_b);
+	if ((elem->sign_a == elem->sign_b)
+		&& elem->sign_b)
 	{
-		elem[0].min_sum_iters = get_max_num(elem[0].iters_a, elem[0].iters_b);
-		(elem[0]).reverse_same_time = 1;
+		elem->min_sum_iters = get_max_num(elem->iters_a, elem->iters_b);
+		elem->reverse_same_time = 1;
 	}	
 	else
 	{
-		(elem[0]).min_sum_iters
-			= (elem[0]).iters_a
-			+ (elem[0]).iters_b;
-		(elem[0]).reverse_same_time = 0;
+		elem->min_sum_iters
+			= elem->iters_a
+			+ elem->iters_b;
+		elem->reverse_same_time = 0;
 	}
 }
 
@@ -77,14 +77,14 @@ t_b_to_a	*get_inf_arr(t_stack **list_a, t_stack **list_b, int a_sz, int b_sz)
 
 	i = 0;
 	stack_b = *list_b;
-	info_b_to_a = (t_b_to_a *)malloc (sizeof(t_b_to_a) * b_sz);
+	info_b_to_a = (t_b_to_a *)malloc(sizeof(t_b_to_a) * b_sz);
 	if (NULL == info_b_to_a)
 		return ((void *)0);
 	while (i < b_sz)
 	{
-		info_b_to_a[i] = find_b_elem (stack_b, list_b, b_sz);
-		find_a_elem (list_a, &(info_b_to_a[i]), a_sz);
-		find_min_summary_iterations (&(info_b_to_a[i]));
+		info_b_to_a[i] = find_b_elem(stack_b, list_b, b_sz);
+		find_a_elem(list_a, &info_b_to_a[i], a_sz);
+		find_min_sum_iters(&(info_b_to_a[i]));
 		i++;
 		stack_b = stack_b->next;
 	}
