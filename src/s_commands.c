@@ -6,7 +6,7 @@
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 10:44:03 by jchopped          #+#    #+#             */
-/*   Updated: 2022/01/08 10:44:12 by jchopped         ###   ########.fr       */
+/*   Updated: 2022/01/08 14:16:44 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,24 @@ int	str_cmp(char *s1, char *s2)
 
 void	s_swap_stack(t_stack **stack_a, t_stack **stack_b)
 {
+	if (!(*stack_a) || !(*stack_b))
+		return ;
 	swap_stack (stack_a);
 	swap_stack (stack_b);
 }
 
 void	s_rotate_stack(t_stack **stack_a, t_stack **stack_b)
 {
+	if (!(*stack_a) || !(*stack_b))
+		return ;
 	rotate_stack (stack_a);
 	rotate_stack (stack_b);
 }
 
 void	s_reverse_rotate_stack(t_stack **stack_a, t_stack **stack_b)
 {
+	if (!(*stack_a) || !(*stack_b))
+		return ;
 	reverse_rotate_stack (stack_a);
 	reverse_rotate_stack (stack_b);
 }
