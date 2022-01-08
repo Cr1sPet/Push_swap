@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/26 15:03:59 by jchopped          #+#    #+#             */
-/*   Updated: 2021/12/26 15:24:17 by jchopped         ###   ########.fr       */
+/*   Created: 2022/01/08 10:44:25 by jchopped          #+#    #+#             */
+/*   Updated: 2022/01/08 10:44:31 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,5 @@ void	initialisation(int *arr, t_stack **list_a, int arr_len)
 	sort_arr(arr, arr_len);
 	list_indexing(*list_a, arr, arr_len);
 	a_sz = ft_lstsize (*list_a);
-	markup_gt(list_a, a_sz);	
+	markup_gt(list_a, a_sz);
 }

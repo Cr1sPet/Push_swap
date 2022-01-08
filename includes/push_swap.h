@@ -6,7 +6,7 @@
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 15:03:46 by jchopped          #+#    #+#             */
-/*   Updated: 2021/12/29 12:55:24 by jchopped         ###   ########.fr       */
+/*   Updated: 2022/01/08 10:55:58 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int			is_positive(int num);
 int			get_min_num(int a, int b);
 int			get_max_num(int a, int b);
 int			get_num_abs(int a);
-int			s_commands (char *str, t_stack **stack_a, t_stack **stack_b);
+int			s_commands(char *str, t_stack **stack_a, t_stack **stack_b);
 int			find_min_elem_number(t_b_to_a	*info_b_to_a, int stack_b_size);
 void		markup_gt(t_stack **list, int lst_sz);
 void		a_to_b(t_stack **list, t_stack **stack_b);
@@ -92,10 +92,10 @@ void		swap_stack(t_stack **list);
 void		print_stack(t_stack **list);
 void		normalize(t_stack **listA, int lst_size);
 void		find_a_elem(t_stack **stack_a, t_b_to_a *info_b_to_a, int a_sz);
-void		elem_b_to_a(t_stack **list_a, t_stack **list_b, t_b_to_a info_b_to_a);
+void		elem_b_to_a(t_stack **list_a, t_stack **list_b, t_b_to_a elem);
 void		s_swap_stack(t_stack **stack_a, t_stack **stack_b);
-void		s_rotate_stack (t_stack **stack_a, t_stack **stack_b);
-void		s_reverse_rotate_stack (t_stack **stack_a, t_stack **stack_b);
+void		s_rotate_stack(t_stack **stack_a, t_stack **stack_b);
+void		s_reverse_rotate_stack(t_stack **stack_a, t_stack **stack_b);
 t_b_to_a	find_b_elem(t_stack *stack_b, t_stack **stack_bb, const int b_sz);
-t_b_to_a	*get_inf_arr(t_stack **list_a, t_stack **list_b, int a_sz, int b_sz);
+t_b_to_a	*get_inf_arr(t_stack **l_a, t_stack **l_b, int a_sz, int b_sz);
 #endif

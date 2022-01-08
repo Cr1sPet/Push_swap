@@ -34,7 +34,6 @@ FLAGS			= -Wall -Wextra -Werror -I${HEADER}
 .PHONY:			all clean fclean re bonus
 
 all:			$(NAME)
-bonus:			$(NAME_B)
 
 $(NAME):		$(OBJ) $(OBJ_B) $(HEADER)
 				$(CC) -o $(NAME) $(OBJ)

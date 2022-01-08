@@ -6,7 +6,7 @@
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 15:03:39 by jchopped          #+#    #+#             */
-/*   Updated: 2021/12/26 15:03:40 by jchopped         ###   ########.fr       */
+/*   Updated: 2022/01/08 11:05:06 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int	*validation(int argc, char **argv, int *arr_length)
 	char	*res;
 	char	**new_argv;
 
-	if (argc < 3)
+	if (1 == argc)
 		exit(EXIT_SUCCESS);
 	joiner (argc, argv, &res);
 	if (ft_strlen(res) == 1 && res[0] == ' ')

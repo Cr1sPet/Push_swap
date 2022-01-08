@@ -6,11 +6,12 @@
 /*   By: jchopped <jchopped@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 15:03:42 by jchopped          #+#    #+#             */
-/*   Updated: 2021/12/28 13:20:00 by jchopped         ###   ########.fr       */
+/*   Updated: 2022/01/08 10:43:40 by jchopped         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 int	str_duo_len(char **arr, int *arr_length)
 {
 	int	i;
@@ -63,7 +64,7 @@ void	pre_valid(char *str, char **res)
 	}
 	if (!ok || !str[0])
 	{
-			free (*res);
+		free (*res);
 		write_bad_message();
 	}
 }
