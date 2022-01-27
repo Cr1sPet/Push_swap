@@ -1,6 +1,6 @@
 #PUSH_SWAP
 
-[SUBJECT](en.subject.pdf "push_swap subject")
+[SUBJECT](subject/en.subject.pdf "push_swap subject")
 
 * We have at our disposal a set of int values, 2 stacks and a set of instructions to manipulate both stacks. 
 
