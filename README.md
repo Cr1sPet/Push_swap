@@ -22,7 +22,7 @@ ARG="input numbers"; ./push_swap $ARG | ./checker $ARG // "ОК" if stack sorted
 
 ####Examples:
 
-![example1](example/ps_example1.jpg)
+![example1](my_push_swap/examples/ps_example.jpg)
 
 ![example1](example/ps_example.jpg)
 
