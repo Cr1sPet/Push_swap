@@ -11,7 +11,6 @@
 ```
 git clone git@github.com:CrsPet/my_push_swap.git
 ```
-
 ### How to use
 ```
 cd my_push_swap
