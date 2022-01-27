@@ -22,14 +22,14 @@ ARG="input numbers"; ./push_swap $ARG | ./checker $ARG // "ОК" if stack sorted
 
 ####Examples:
 
-![example1](https://github.com/CrsPet/my_push_swap/tree/master/examples/ps_example1.jpg)
+![ps_example](https://user-images.githubusercontent.com/93244882/151348451-9ff81eab-9409-4b75-a591-2e6cebaa5b08.jpg)
 
-![example1](example/ps_example.jpg)
+![ps_example1](https://user-images.githubusercontent.com/93244882/151348586-4bdf01ed-fdc8-4100-959b-eee887393751.jpg)
 
 ---
 ####Bonus: checker program
 
-![example1](example/ps_example2.png)
+![ps_example2](https://user-images.githubusercontent.com/93244882/151348623-0c210cea-88ef-4770-aae2-a3c519955734.png)
 
 If the program checker displays KO, it means that your push_swap came up with
 a list of instructions that doesn’t sort the list. 
