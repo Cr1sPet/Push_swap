@@ -7,7 +7,7 @@
 * push_swap program receive as an argument the stack a formatted as a list of integers. The first argument should be at the top of the stack.
 * The program must display the smallest list of instructions possible to sort the stack a.
 
-###How to use
+### How to use
 ```
 git clone git@github.com:CrsPet/my_push_swap.git
 make
