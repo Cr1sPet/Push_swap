@@ -15,7 +15,7 @@ ARG="input numbers"; ./push_swap $ARG // get instructions to sort
 ARG="input numbers"; ./push_swap $ARG | wc -l // number of instructions
 ARG="input numbers"; ./push_swap $ARG | ./checker $ARG // "ОК" if stack sorted, else "KO", on error prints "Error!"
 
-*random numbers - sequence of unique int (integer)
+*input numbers - sequence of unique int (integer)
 
 ```
 ---
