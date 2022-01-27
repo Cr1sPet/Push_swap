@@ -7,7 +7,7 @@
 * push_swap program receive as an argument the stack a formatted as a list of integers. The first argument should be at the top of the stack.
 * The program must display the smallest list of instructions possible to sort the stack a.
 
-####How to use
+###How to use
 ```
 git clone git@github.com:CrsPet/my_push_swap.git
 make
@@ -20,14 +20,14 @@ ARG="input numbers"; ./push_swap $ARG | ./checker $ARG // "ОК" if stack sorted
 ```
 ---
 
-#### Examples:
+### Examples:
 
 ![ps_example](https://user-images.githubusercontent.com/93244882/151348451-9ff81eab-9409-4b75-a591-2e6cebaa5b08.jpg)
 ---
 ![ps_example1](https://user-images.githubusercontent.com/93244882/151348586-4bdf01ed-fdc8-4100-959b-eee887393751.jpg)
 
 ---
-#### Bonus: checker program
+### Bonus: checker program
 
 ![ps_example2](https://user-images.githubusercontent.com/93244882/151348623-0c210cea-88ef-4770-aae2-a3c519955734.png)
 
